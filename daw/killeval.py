@@ -164,8 +164,12 @@ def run_workflow(wspec: dict, wf, out: Path, db: Path, reps: int, max_attempts: 
             args += ["--db", str(db)] if cond == "ckpt" else ["--no-checkpoint"]
             w = Worker(args, ledger, ldir / f"{label}.log")
             result, wall = w.wait()
+            events = read_ledger(ledger)
+            if not events:
+                raise RuntimeError(f"{label}: steps wrote no ledger records ({ledger}); harness is "
+                                   "misconfigured, refusing to report numbers")
             (ckpt_walls if cond == "ckpt" else plain_walls).append(wall)
-            add_timeouts(cond, read_ledger(ledger), w.pid, result)
+            add_timeouts(cond, events, w.pid, result)
             if golden is None:
                 golden = outcome(result)  # first checkpointed run is the golden result
             elif outcome(result) != golden:
@@ -349,7 +353,7 @@ def main(reps: int = 3, only: list[str] | None = None, out: str | None = None) -
     if only:
         items = [(w, wf) for w, wf in items if w["name"] in only]
     when = time.strftime("%Y-%m-%d %H:%M:%S %Z")
-    out_dir = Path(out) if out else PROJECT_ROOT / "eval" / "results" / time.strftime("%Y%m%d-%H%M%S")
+    out_dir = (Path(out) if out else PROJECT_ROOT / "eval" / "results" / time.strftime("%Y%m%d-%H%M%S")).resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
     db = out_dir / "eval.db"
     max_attempts = int(suite["defaults"]["max_attempts"])
