@@ -1,0 +1,251 @@
+{
+  "suite": "kill-test-v1",
+  "description": "Frozen kill-test workflows. Written and hashed before the engine or the harness existed. Do not edit: if a workflow turns out to be broken, record it as broken in the README and exclude it openly.",
+  "kinds": {
+    "instant": "returns immediately",
+    "slow": "sleeps slow_sleep seconds, then returns",
+    "fail_once": "exits nonzero on attempt 1, succeeds on attempt 2+",
+    "always_fail": "exits nonzero on every attempt; the run must end failed, cleanly",
+    "timeout": "on attempts <= bad_attempts (default 1) sleeps timeout_sleep seconds, past its step timeout, and must be killed; later attempts return immediately"
+  },
+  "kill_points": "on=start: SIGKILL the worker `delay` seconds after the step's attempt starts. on=end: SIGKILL `delay` seconds after the step's attempt finishes (success or failure), before or while the engine records it.",
+  "defaults": {
+    "max_attempts": 3,
+    "backoff": 1.0,
+    "timeout": 30.0,
+    "slow_sleep": 2.0,
+    "timeout_step_timeout": 1.0,
+    "timeout_sleep": 6.0
+  },
+  "workflows": [
+    {
+      "name": "wf01-instant-3",
+      "expect": "completed",
+      "steps": [
+        {"name": "a", "kind": "instant"},
+        {"name": "b", "kind": "instant"},
+        {"name": "c", "kind": "instant"}
+      ],
+      "kill": {"on": "start", "step": "c", "attempt": 1, "delay": 0.0}
+    },
+    {
+      "name": "wf02-instant-8",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "instant"},
+        {"name": "s2", "kind": "instant"},
+        {"name": "s3", "kind": "instant"},
+        {"name": "s4", "kind": "instant"},
+        {"name": "s5", "kind": "instant"},
+        {"name": "s6", "kind": "instant"},
+        {"name": "s7", "kind": "instant"},
+        {"name": "s8", "kind": "instant"}
+      ],
+      "kill": {"on": "start", "step": "s5", "attempt": 1, "delay": 0.0}
+    },
+    {
+      "name": "wf03-slow-middle",
+      "expect": "completed",
+      "steps": [
+        {"name": "a", "kind": "instant"},
+        {"name": "b", "kind": "slow"},
+        {"name": "c", "kind": "instant"}
+      ],
+      "kill": {"on": "start", "step": "b", "attempt": 1, "delay": 1.0}
+    },
+    {
+      "name": "wf04-slow-chain-5",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "slow"},
+        {"name": "s2", "kind": "instant"},
+        {"name": "s3", "kind": "slow"},
+        {"name": "s4", "kind": "instant"},
+        {"name": "s5", "kind": "slow"}
+      ],
+      "kill": {"on": "start", "step": "s3", "attempt": 1, "delay": 1.0}
+    },
+    {
+      "name": "wf05-fail-once-first",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "fail_once"},
+        {"name": "s2", "kind": "instant"},
+        {"name": "s3", "kind": "instant"},
+        {"name": "s4", "kind": "slow"}
+      ],
+      "kill": {"on": "start", "step": "s4", "attempt": 1, "delay": 1.0}
+    },
+    {
+      "name": "wf06-kill-in-backoff",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "instant"},
+        {"name": "s2", "kind": "fail_once"},
+        {"name": "s3", "kind": "instant"},
+        {"name": "s4", "kind": "instant"}
+      ],
+      "kill": {"on": "end", "step": "s2", "attempt": 1, "delay": 0.3}
+    },
+    {
+      "name": "wf07-kill-during-timeout",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "instant"},
+        {"name": "s2", "kind": "timeout"},
+        {"name": "s3", "kind": "instant"},
+        {"name": "s4", "kind": "instant"}
+      ],
+      "kill": {"on": "start", "step": "s2", "attempt": 1, "delay": 0.5}
+    },
+    {
+      "name": "wf08-kill-after-timeout-retry",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "slow"},
+        {"name": "s2", "kind": "timeout"},
+        {"name": "s3", "kind": "slow"}
+      ],
+      "kill": {"on": "start", "step": "s2", "attempt": 2, "delay": 0.0}
+    },
+    {
+      "name": "wf09-always-fail-last",
+      "expect": "failed",
+      "steps": [
+        {"name": "s1", "kind": "instant"},
+        {"name": "s2", "kind": "slow"},
+        {"name": "s3", "kind": "always_fail"}
+      ],
+      "kill": {"on": "start", "step": "s3", "attempt": 2, "delay": 0.2}
+    },
+    {
+      "name": "wf10-always-fail-first",
+      "expect": "failed",
+      "steps": [
+        {"name": "s1", "kind": "always_fail"},
+        {"name": "s2", "kind": "instant"},
+        {"name": "s3", "kind": "instant"}
+      ],
+      "kill": {"on": "end", "step": "s1", "attempt": 1, "delay": 0.5}
+    },
+    {
+      "name": "wf11-mixed-6",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "instant"},
+        {"name": "s2", "kind": "slow"},
+        {"name": "s3", "kind": "fail_once"},
+        {"name": "s4", "kind": "instant"},
+        {"name": "s5", "kind": "timeout"},
+        {"name": "s6", "kind": "instant"}
+      ],
+      "kill": {"on": "start", "step": "s4", "attempt": 1, "delay": 0.0}
+    },
+    {
+      "name": "wf12-mixed-7",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "slow"},
+        {"name": "s2", "kind": "fail_once"},
+        {"name": "s3", "kind": "slow"},
+        {"name": "s4", "kind": "instant"},
+        {"name": "s5", "kind": "fail_once"},
+        {"name": "s6", "kind": "instant"},
+        {"name": "s7", "kind": "slow"}
+      ],
+      "kill": {"on": "start", "step": "s5", "attempt": 1, "delay": 0.0}
+    },
+    {
+      "name": "wf13-mixed-8",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "instant"},
+        {"name": "s2", "kind": "instant"},
+        {"name": "s3", "kind": "slow"},
+        {"name": "s4", "kind": "timeout"},
+        {"name": "s5", "kind": "instant"},
+        {"name": "s6", "kind": "fail_once"},
+        {"name": "s7", "kind": "slow"},
+        {"name": "s8", "kind": "instant"}
+      ],
+      "kill": {"on": "start", "step": "s7", "attempt": 1, "delay": 1.5}
+    },
+    {
+      "name": "wf14-fan-in",
+      "expect": "completed",
+      "steps": [
+        {"name": "a", "kind": "instant", "inputs": ["input"]},
+        {"name": "b", "kind": "instant", "inputs": ["input"]},
+        {"name": "c", "kind": "slow", "inputs": ["a", "b"]},
+        {"name": "d", "kind": "instant", "inputs": ["a", "c"]}
+      ],
+      "kill": {"on": "start", "step": "c", "attempt": 1, "delay": 0.5}
+    },
+    {
+      "name": "wf15-kill-near-end",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "instant"},
+        {"name": "s2", "kind": "instant"},
+        {"name": "s3", "kind": "slow"},
+        {"name": "s4", "kind": "slow"}
+      ],
+      "kill": {"on": "start", "step": "s4", "attempt": 1, "delay": 1.9}
+    },
+    {
+      "name": "wf16-kill-first-step",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "slow"},
+        {"name": "s2", "kind": "instant"},
+        {"name": "s3", "kind": "instant"}
+      ],
+      "kill": {"on": "start", "step": "s1", "attempt": 1, "delay": 0.5}
+    },
+    {
+      "name": "wf17-always-fail-middle",
+      "expect": "failed",
+      "steps": [
+        {"name": "s1", "kind": "instant"},
+        {"name": "s2", "kind": "fail_once"},
+        {"name": "s3", "kind": "always_fail"},
+        {"name": "s4", "kind": "instant"},
+        {"name": "s5", "kind": "instant"}
+      ],
+      "kill": {"on": "start", "step": "s3", "attempt": 1, "delay": 0.0}
+    },
+    {
+      "name": "wf18-double-timeout",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "timeout"},
+        {"name": "s2", "kind": "timeout", "bad_attempts": 2},
+        {"name": "s3", "kind": "instant"}
+      ],
+      "kill": {"on": "start", "step": "s2", "attempt": 2, "delay": 0.5}
+    },
+    {
+      "name": "wf19-timeout-exhausts",
+      "expect": "failed",
+      "steps": [
+        {"name": "s1", "kind": "instant"},
+        {"name": "s2", "kind": "timeout", "bad_attempts": 3},
+        {"name": "s3", "kind": "instant"}
+      ],
+      "kill": {"on": "start", "step": "s2", "attempt": 2, "delay": 0.5}
+    },
+    {
+      "name": "wf20-commit-window",
+      "expect": "completed",
+      "steps": [
+        {"name": "s1", "kind": "instant"},
+        {"name": "s2", "kind": "instant"},
+        {"name": "s3", "kind": "instant"},
+        {"name": "s4", "kind": "instant"},
+        {"name": "s5", "kind": "instant"},
+        {"name": "s6", "kind": "instant"}
+      ],
+      "kill": {"on": "end", "step": "s3", "attempt": 1, "delay": 0.0}
+    }
+  ]
+}

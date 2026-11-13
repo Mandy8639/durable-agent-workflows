@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+.daw/
+out/
+eval/results/*/eval.db*
+eval/results/*/workspaces/
+.env
