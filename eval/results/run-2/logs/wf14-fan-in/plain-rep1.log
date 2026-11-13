@@ -1,0 +1,9 @@
+15:48:35 [wf14-fan-in-plain-rep1] step 1/4 a: attempt 1/3 started
+15:48:35 [wf14-fan-in-plain-rep1] step 1/4 a: attempt 1 ok in 0.02s, checkpointed
+15:48:35 [wf14-fan-in-plain-rep1] step 2/4 b: attempt 1/3 started
+15:48:35 [wf14-fan-in-plain-rep1] step 2/4 b: attempt 1 ok in 0.02s, checkpointed
+15:48:35 [wf14-fan-in-plain-rep1] step 3/4 c: attempt 1/3 started
+15:48:37 [wf14-fan-in-plain-rep1] step 3/4 c: attempt 1 ok in 2.04s, checkpointed
+15:48:37 [wf14-fan-in-plain-rep1] step 4/4 d: attempt 1/3 started
+15:48:37 [wf14-fan-in-plain-rep1] step 4/4 d: attempt 1 ok in 0.04s, checkpointed
+15:48:37 [wf14-fan-in-plain-rep1] run completed

@@ -1,0 +1,13 @@
+15:46:07 [wf11-mixed-6-kill-ckpt] step 1/6 s1: completed earlier, reusing checkpointed output
+15:46:07 [wf11-mixed-6-kill-ckpt] step 2/6 s2: completed earlier, reusing checkpointed output
+15:46:07 [wf11-mixed-6-kill-ckpt] step 3/6 s3: completed earlier, reusing checkpointed output
+15:46:07 [wf11-mixed-6-kill-ckpt] step 4/6 s4: attempt 1 was interrupted by a crash (counts as an attempt)
+15:46:07 [wf11-mixed-6-kill-ckpt] step 4/6 s4: attempt 2/3 started
+15:46:07 [wf11-mixed-6-kill-ckpt] step 4/6 s4: attempt 2 ok in 0.02s, checkpointed
+15:46:07 [wf11-mixed-6-kill-ckpt] step 5/6 s5: attempt 1/3 started
+15:46:08 [wf11-mixed-6-kill-ckpt] step 5/6 s5: attempt 1: timeout: timeout after 1.00s; process killed; retrying in 1s
+15:46:09 [wf11-mixed-6-kill-ckpt] step 5/6 s5: attempt 2/3 started
+15:46:09 [wf11-mixed-6-kill-ckpt] step 5/6 s5: attempt 2 ok in 0.05s, checkpointed
+15:46:09 [wf11-mixed-6-kill-ckpt] step 6/6 s6: attempt 1/3 started
+15:46:09 [wf11-mixed-6-kill-ckpt] step 6/6 s6: attempt 1 ok in 0.03s, checkpointed
+15:46:09 [wf11-mixed-6-kill-ckpt] run completed

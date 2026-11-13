@@ -1,0 +1,8 @@
+run wf03-slow-middle-ckpt-rep0 started (eval/wf03-slow-middle); resume with: daw resume wf03-slow-middle-ckpt-rep0
+15:41:27 [wf03-slow-middle-ckpt-rep0] step 1/3 a: attempt 1/3 started
+15:41:27 [wf03-slow-middle-ckpt-rep0] step 1/3 a: attempt 1 ok in 0.02s, checkpointed
+15:41:27 [wf03-slow-middle-ckpt-rep0] step 2/3 b: attempt 1/3 started
+15:41:29 [wf03-slow-middle-ckpt-rep0] step 2/3 b: attempt 1 ok in 2.04s, checkpointed
+15:41:29 [wf03-slow-middle-ckpt-rep0] step 3/3 c: attempt 1/3 started
+15:41:29 [wf03-slow-middle-ckpt-rep0] step 3/3 c: attempt 1 ok in 0.04s, checkpointed
+15:41:29 [wf03-slow-middle-ckpt-rep0] run completed

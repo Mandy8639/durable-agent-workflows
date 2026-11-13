@@ -1,0 +1,12 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 54760, "run_id": "wf01-instant-3-kill-plain", "step": "a", "t": 1794602485.186576, "will_timeout": false, "worker_pid": 54759}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 54760, "run_id": "wf01-instant-3-kill-plain", "step": "a", "t": 1794602485.186719, "worker_pid": 54759}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 54761, "run_id": "wf01-instant-3-kill-plain", "step": "b", "t": 1794602485.2089531, "will_timeout": false, "worker_pid": 54759}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 54761, "run_id": "wf01-instant-3-kill-plain", "step": "b", "t": 1794602485.209048, "worker_pid": 54759}
+{"attempt": 1, "event": "start", "index": 2, "kind": "instant", "pid": 54762, "run_id": "wf01-instant-3-kill-plain", "step": "c", "t": 1794602485.230963, "will_timeout": false, "worker_pid": 54759}
+{"attempt": 1, "event": "end", "index": 2, "kind": "instant", "ok": true, "pid": 54762, "run_id": "wf01-instant-3-kill-plain", "step": "c", "t": 1794602485.231052, "worker_pid": 54759}
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 54764, "run_id": "wf01-instant-3-kill-plain-restart", "step": "a", "t": 1794602485.2786298, "will_timeout": false, "worker_pid": 54763}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 54764, "run_id": "wf01-instant-3-kill-plain-restart", "step": "a", "t": 1794602485.278718, "worker_pid": 54763}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 54765, "run_id": "wf01-instant-3-kill-plain-restart", "step": "b", "t": 1794602485.299853, "will_timeout": false, "worker_pid": 54763}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 54765, "run_id": "wf01-instant-3-kill-plain-restart", "step": "b", "t": 1794602485.2999449, "worker_pid": 54763}
+{"attempt": 1, "event": "start", "index": 2, "kind": "instant", "pid": 54766, "run_id": "wf01-instant-3-kill-plain-restart", "step": "c", "t": 1794602485.321537, "will_timeout": false, "worker_pid": 54763}
+{"attempt": 1, "event": "end", "index": 2, "kind": "instant", "ok": true, "pid": 54766, "run_id": "wf01-instant-3-kill-plain-restart", "step": "c", "t": 1794602485.321635, "worker_pid": 54763}

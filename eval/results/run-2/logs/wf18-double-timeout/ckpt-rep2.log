@@ -1,0 +1,14 @@
+run wf18-double-timeout-ckpt-rep2 started (eval/wf18-double-timeout); resume with: daw resume wf18-double-timeout-ckpt-rep2
+15:50:36 [wf18-double-timeout-ckpt-rep2] step 1/3 s1: attempt 1/3 started
+15:50:37 [wf18-double-timeout-ckpt-rep2] step 1/3 s1: attempt 1: timeout: timeout after 1.01s; process killed; retrying in 1s
+15:50:38 [wf18-double-timeout-ckpt-rep2] step 1/3 s1: attempt 2/3 started
+15:50:38 [wf18-double-timeout-ckpt-rep2] step 1/3 s1: attempt 2 ok in 0.05s, checkpointed
+15:50:38 [wf18-double-timeout-ckpt-rep2] step 2/3 s2: attempt 1/3 started
+15:50:39 [wf18-double-timeout-ckpt-rep2] step 2/3 s2: attempt 1: timeout: timeout after 1.01s; process killed; retrying in 1s
+15:50:40 [wf18-double-timeout-ckpt-rep2] step 2/3 s2: attempt 2/3 started
+15:50:41 [wf18-double-timeout-ckpt-rep2] step 2/3 s2: attempt 2: timeout: timeout after 1.01s; process killed; retrying in 1s
+15:50:42 [wf18-double-timeout-ckpt-rep2] step 2/3 s2: attempt 3/3 started
+15:50:42 [wf18-double-timeout-ckpt-rep2] step 2/3 s2: attempt 3 ok in 0.04s, checkpointed
+15:50:42 [wf18-double-timeout-ckpt-rep2] step 3/3 s3: attempt 1/3 started
+15:50:42 [wf18-double-timeout-ckpt-rep2] step 3/3 s3: attempt 1 ok in 0.03s, checkpointed
+15:50:42 [wf18-double-timeout-ckpt-rep2] run completed

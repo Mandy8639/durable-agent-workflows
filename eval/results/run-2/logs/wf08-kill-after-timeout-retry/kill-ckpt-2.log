@@ -1,0 +1,7 @@
+15:44:27 [wf08-kill-after-timeout-retry-kill-ckpt] step 1/3 s1: completed earlier, reusing checkpointed output
+15:44:27 [wf08-kill-after-timeout-retry-kill-ckpt] step 2/3 s2: attempt 2 was interrupted by a crash (counts as an attempt)
+15:44:27 [wf08-kill-after-timeout-retry-kill-ckpt] step 2/3 s2: attempt 3/3 started
+15:44:27 [wf08-kill-after-timeout-retry-kill-ckpt] step 2/3 s2: attempt 3 ok in 0.02s, checkpointed
+15:44:27 [wf08-kill-after-timeout-retry-kill-ckpt] step 3/3 s3: attempt 1/3 started
+15:44:29 [wf08-kill-after-timeout-retry-kill-ckpt] step 3/3 s3: attempt 1 ok in 2.04s, checkpointed
+15:44:29 [wf08-kill-after-timeout-retry-kill-ckpt] run completed

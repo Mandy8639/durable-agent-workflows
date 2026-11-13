@@ -1,0 +1,12 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "slow", "pid": 55185, "run_id": "wf08-kill-after-timeout-retry-kill-plain", "step": "s1", "t": 1794602653.068681, "will_timeout": false, "worker_pid": 55184}
+{"attempt": 1, "event": "end", "index": 0, "kind": "slow", "ok": true, "pid": 55185, "run_id": "wf08-kill-after-timeout-retry-kill-plain", "step": "s1", "t": 1794602655.0741708, "worker_pid": 55184}
+{"attempt": 1, "event": "start", "index": 1, "kind": "timeout", "pid": 55188, "run_id": "wf08-kill-after-timeout-retry-kill-plain", "step": "s2", "t": 1794602655.127211, "will_timeout": true, "worker_pid": 55184}
+{"attempt": 2, "event": "start", "index": 1, "kind": "timeout", "pid": 55189, "run_id": "wf08-kill-after-timeout-retry-kill-plain", "step": "s2", "t": 1794602657.140287, "will_timeout": false, "worker_pid": 55184}
+{"attempt": 2, "event": "end", "index": 1, "kind": "timeout", "ok": true, "pid": 55189, "run_id": "wf08-kill-after-timeout-retry-kill-plain", "step": "s2", "t": 1794602657.1404412, "worker_pid": 55184}
+{"attempt": 1, "event": "start", "index": 0, "kind": "slow", "pid": 55191, "run_id": "wf08-kill-after-timeout-retry-kill-plain-restart", "step": "s1", "t": 1794602657.1930492, "will_timeout": false, "worker_pid": 55190}
+{"attempt": 1, "event": "end", "index": 0, "kind": "slow", "ok": true, "pid": 55191, "run_id": "wf08-kill-after-timeout-retry-kill-plain-restart", "step": "s1", "t": 1794602659.1984751, "worker_pid": 55190}
+{"attempt": 1, "event": "start", "index": 1, "kind": "timeout", "pid": 55192, "run_id": "wf08-kill-after-timeout-retry-kill-plain-restart", "step": "s2", "t": 1794602659.247047, "will_timeout": true, "worker_pid": 55190}
+{"attempt": 2, "event": "start", "index": 1, "kind": "timeout", "pid": 55193, "run_id": "wf08-kill-after-timeout-retry-kill-plain-restart", "step": "s2", "t": 1794602661.2687628, "will_timeout": false, "worker_pid": 55190}
+{"attempt": 2, "event": "end", "index": 1, "kind": "timeout", "ok": true, "pid": 55193, "run_id": "wf08-kill-after-timeout-retry-kill-plain-restart", "step": "s2", "t": 1794602661.268882, "worker_pid": 55190}
+{"attempt": 1, "event": "start", "index": 2, "kind": "slow", "pid": 55194, "run_id": "wf08-kill-after-timeout-retry-kill-plain-restart", "step": "s3", "t": 1794602661.296385, "will_timeout": false, "worker_pid": 55190}
+{"attempt": 1, "event": "end", "index": 2, "kind": "slow", "ok": true, "pid": 55194, "run_id": "wf08-kill-after-timeout-retry-kill-plain-restart", "step": "s3", "t": 1794602663.301746, "worker_pid": 55190}

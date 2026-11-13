@@ -1,0 +1,16 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 54783, "run_id": "wf02-instant-8-plain-rep0", "step": "s1", "t": 1794602485.728807, "will_timeout": false, "worker_pid": 54782}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 54783, "run_id": "wf02-instant-8-plain-rep0", "step": "s1", "t": 1794602485.72895, "worker_pid": 54782}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 54784, "run_id": "wf02-instant-8-plain-rep0", "step": "s2", "t": 1794602485.750687, "will_timeout": false, "worker_pid": 54782}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 54784, "run_id": "wf02-instant-8-plain-rep0", "step": "s2", "t": 1794602485.7507899, "worker_pid": 54782}
+{"attempt": 1, "event": "start", "index": 2, "kind": "instant", "pid": 54785, "run_id": "wf02-instant-8-plain-rep0", "step": "s3", "t": 1794602485.7725718, "will_timeout": false, "worker_pid": 54782}
+{"attempt": 1, "event": "end", "index": 2, "kind": "instant", "ok": true, "pid": 54785, "run_id": "wf02-instant-8-plain-rep0", "step": "s3", "t": 1794602485.772697, "worker_pid": 54782}
+{"attempt": 1, "event": "start", "index": 3, "kind": "instant", "pid": 54786, "run_id": "wf02-instant-8-plain-rep0", "step": "s4", "t": 1794602485.7951229, "will_timeout": false, "worker_pid": 54782}
+{"attempt": 1, "event": "end", "index": 3, "kind": "instant", "ok": true, "pid": 54786, "run_id": "wf02-instant-8-plain-rep0", "step": "s4", "t": 1794602485.795221, "worker_pid": 54782}
+{"attempt": 1, "event": "start", "index": 4, "kind": "instant", "pid": 54787, "run_id": "wf02-instant-8-plain-rep0", "step": "s5", "t": 1794602485.81683, "will_timeout": false, "worker_pid": 54782}
+{"attempt": 1, "event": "end", "index": 4, "kind": "instant", "ok": true, "pid": 54787, "run_id": "wf02-instant-8-plain-rep0", "step": "s5", "t": 1794602485.816926, "worker_pid": 54782}
+{"attempt": 1, "event": "start", "index": 5, "kind": "instant", "pid": 54788, "run_id": "wf02-instant-8-plain-rep0", "step": "s6", "t": 1794602485.8386219, "will_timeout": false, "worker_pid": 54782}
+{"attempt": 1, "event": "end", "index": 5, "kind": "instant", "ok": true, "pid": 54788, "run_id": "wf02-instant-8-plain-rep0", "step": "s6", "t": 1794602485.838727, "worker_pid": 54782}
+{"attempt": 1, "event": "start", "index": 6, "kind": "instant", "pid": 54789, "run_id": "wf02-instant-8-plain-rep0", "step": "s7", "t": 1794602485.8610718, "will_timeout": false, "worker_pid": 54782}
+{"attempt": 1, "event": "end", "index": 6, "kind": "instant", "ok": true, "pid": 54789, "run_id": "wf02-instant-8-plain-rep0", "step": "s7", "t": 1794602485.861171, "worker_pid": 54782}
+{"attempt": 1, "event": "start", "index": 7, "kind": "instant", "pid": 54790, "run_id": "wf02-instant-8-plain-rep0", "step": "s8", "t": 1794602485.8831282, "will_timeout": false, "worker_pid": 54782}
+{"attempt": 1, "event": "end", "index": 7, "kind": "instant", "ok": true, "pid": 54790, "run_id": "wf02-instant-8-plain-rep0", "step": "s8", "t": 1794602485.883235, "worker_pid": 54782}

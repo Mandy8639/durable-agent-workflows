@@ -1,0 +1,12 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 55792, "run_id": "wf17-always-fail-middle-kill-ckpt", "step": "s1", "t": 1794603009.215183, "will_timeout": false, "worker_pid": 55791}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 55792, "run_id": "wf17-always-fail-middle-kill-ckpt", "step": "s1", "t": 1794603009.2153192, "worker_pid": 55791}
+{"attempt": 1, "event": "start", "index": 1, "kind": "fail_once", "pid": 55793, "run_id": "wf17-always-fail-middle-kill-ckpt", "step": "s2", "t": 1794603009.237657, "will_timeout": false, "worker_pid": 55791}
+{"attempt": 1, "event": "end", "index": 1, "kind": "fail_once", "ok": false, "pid": 55793, "run_id": "wf17-always-fail-middle-kill-ckpt", "step": "s2", "t": 1794603009.23777, "worker_pid": 55791}
+{"attempt": 2, "event": "start", "index": 1, "kind": "fail_once", "pid": 55794, "run_id": "wf17-always-fail-middle-kill-ckpt", "step": "s2", "t": 1794603010.283844, "will_timeout": false, "worker_pid": 55791}
+{"attempt": 2, "event": "end", "index": 1, "kind": "fail_once", "ok": true, "pid": 55794, "run_id": "wf17-always-fail-middle-kill-ckpt", "step": "s2", "t": 1794603010.2839732, "worker_pid": 55791}
+{"attempt": 1, "event": "start", "index": 2, "kind": "always_fail", "pid": 55795, "run_id": "wf17-always-fail-middle-kill-ckpt", "step": "s3", "t": 1794603010.311051, "will_timeout": false, "worker_pid": 55791}
+{"attempt": 1, "event": "end", "index": 2, "kind": "always_fail", "ok": false, "pid": 55795, "run_id": "wf17-always-fail-middle-kill-ckpt", "step": "s3", "t": 1794603010.311141, "worker_pid": 55791}
+{"attempt": 2, "event": "start", "index": 2, "kind": "always_fail", "pid": 55797, "run_id": "wf17-always-fail-middle-kill-ckpt", "step": "s3", "t": 1794603010.364759, "will_timeout": false, "worker_pid": 55796}
+{"attempt": 2, "event": "end", "index": 2, "kind": "always_fail", "ok": false, "pid": 55797, "run_id": "wf17-always-fail-middle-kill-ckpt", "step": "s3", "t": 1794603010.3648891, "worker_pid": 55796}
+{"attempt": 3, "event": "start", "index": 2, "kind": "always_fail", "pid": 55798, "run_id": "wf17-always-fail-middle-kill-ckpt", "step": "s3", "t": 1794603011.419379, "will_timeout": false, "worker_pid": 55796}
+{"attempt": 3, "event": "end", "index": 2, "kind": "always_fail", "ok": false, "pid": 55798, "run_id": "wf17-always-fail-middle-kill-ckpt", "step": "s3", "t": 1794603011.4195, "worker_pid": 55796}

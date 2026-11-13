@@ -1,0 +1,6 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "always_fail", "pid": 55261, "run_id": "wf10-always-fail-first-ckpt-rep0", "step": "s1", "t": 1794602706.2991092, "will_timeout": false, "worker_pid": 55260}
+{"attempt": 1, "event": "end", "index": 0, "kind": "always_fail", "ok": false, "pid": 55261, "run_id": "wf10-always-fail-first-ckpt-rep0", "step": "s1", "t": 1794602706.299243, "worker_pid": 55260}
+{"attempt": 2, "event": "start", "index": 0, "kind": "always_fail", "pid": 55262, "run_id": "wf10-always-fail-first-ckpt-rep0", "step": "s1", "t": 1794602707.3553438, "will_timeout": false, "worker_pid": 55260}
+{"attempt": 2, "event": "end", "index": 0, "kind": "always_fail", "ok": false, "pid": 55262, "run_id": "wf10-always-fail-first-ckpt-rep0", "step": "s1", "t": 1794602707.355469, "worker_pid": 55260}
+{"attempt": 3, "event": "start", "index": 0, "kind": "always_fail", "pid": 55263, "run_id": "wf10-always-fail-first-ckpt-rep0", "step": "s1", "t": 1794602708.4077399, "will_timeout": false, "worker_pid": 55260}
+{"attempt": 3, "event": "end", "index": 0, "kind": "always_fail", "ok": false, "pid": 55263, "run_id": "wf10-always-fail-first-ckpt-rep0", "step": "s1", "t": 1794602708.407857, "worker_pid": 55260}

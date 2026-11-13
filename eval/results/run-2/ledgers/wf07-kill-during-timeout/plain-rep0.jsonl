@@ -1,0 +1,9 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 55105, "run_id": "wf07-kill-during-timeout-plain-rep0", "step": "s1", "t": 1794602601.533858, "will_timeout": false, "worker_pid": 55104}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 55105, "run_id": "wf07-kill-during-timeout-plain-rep0", "step": "s1", "t": 1794602601.5339992, "worker_pid": 55104}
+{"attempt": 1, "event": "start", "index": 1, "kind": "timeout", "pid": 55106, "run_id": "wf07-kill-during-timeout-plain-rep0", "step": "s2", "t": 1794602601.556421, "will_timeout": true, "worker_pid": 55104}
+{"attempt": 2, "event": "start", "index": 1, "kind": "timeout", "pid": 55107, "run_id": "wf07-kill-during-timeout-plain-rep0", "step": "s2", "t": 1794602603.5963671, "will_timeout": false, "worker_pid": 55104}
+{"attempt": 2, "event": "end", "index": 1, "kind": "timeout", "ok": true, "pid": 55107, "run_id": "wf07-kill-during-timeout-plain-rep0", "step": "s2", "t": 1794602603.596533, "worker_pid": 55104}
+{"attempt": 1, "event": "start", "index": 2, "kind": "instant", "pid": 55108, "run_id": "wf07-kill-during-timeout-plain-rep0", "step": "s3", "t": 1794602603.6249769, "will_timeout": false, "worker_pid": 55104}
+{"attempt": 1, "event": "end", "index": 2, "kind": "instant", "ok": true, "pid": 55108, "run_id": "wf07-kill-during-timeout-plain-rep0", "step": "s3", "t": 1794602603.625094, "worker_pid": 55104}
+{"attempt": 1, "event": "start", "index": 3, "kind": "instant", "pid": 55109, "run_id": "wf07-kill-during-timeout-plain-rep0", "step": "s4", "t": 1794602603.6490629, "will_timeout": false, "worker_pid": 55104}
+{"attempt": 1, "event": "end", "index": 3, "kind": "instant", "ok": true, "pid": 55109, "run_id": "wf07-kill-during-timeout-plain-rep0", "step": "s4", "t": 1794602603.649172, "worker_pid": 55104}

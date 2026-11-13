@@ -1,0 +1,4 @@
+run wf03-slow-middle-kill-ckpt started (eval/wf03-slow-middle); resume with: daw resume wf03-slow-middle-kill-ckpt
+15:41:43 [wf03-slow-middle-kill-ckpt] step 1/3 a: attempt 1/3 started
+15:41:43 [wf03-slow-middle-kill-ckpt] step 1/3 a: attempt 1 ok in 0.02s, checkpointed
+15:41:43 [wf03-slow-middle-kill-ckpt] step 2/3 b: attempt 1/3 started

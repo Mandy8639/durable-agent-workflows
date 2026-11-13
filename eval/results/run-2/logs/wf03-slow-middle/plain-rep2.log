@@ -1,0 +1,7 @@
+15:41:38 [wf03-slow-middle-plain-rep2] step 1/3 a: attempt 1/3 started
+15:41:38 [wf03-slow-middle-plain-rep2] step 1/3 a: attempt 1 ok in 0.02s, checkpointed
+15:41:38 [wf03-slow-middle-plain-rep2] step 2/3 b: attempt 1/3 started
+15:41:40 [wf03-slow-middle-plain-rep2] step 2/3 b: attempt 1 ok in 2.04s, checkpointed
+15:41:40 [wf03-slow-middle-plain-rep2] step 3/3 c: attempt 1/3 started
+15:41:40 [wf03-slow-middle-plain-rep2] step 3/3 c: attempt 1 ok in 0.04s, checkpointed
+15:41:40 [wf03-slow-middle-plain-rep2] run completed

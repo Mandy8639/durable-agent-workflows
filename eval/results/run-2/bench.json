@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "when": "2026-11-13 15:52:01 EST",
+    "platform": "Darwin arm64, Python 3.12.14"
+  },
+  "rows": {
+    "in-memory (no-checkpoint baseline)": {
+      "median_ms": 0.008874980267137289,
+      "p95_ms": 0.010541989468038082,
+      "n": 500
+    },
+    "WAL + synchronous=FULL (engine default)": {
+      "median_ms": 0.08166645420715213,
+      "p95_ms": 2.8060839977115393,
+      "n": 500
+    },
+    "WAL + synchronous=FULL + fullfsync": {
+      "median_ms": 8.687749970704317,
+      "p95_ms": 16.16387499962002,
+      "n": 500
+    },
+    "sandboxed no-op step (subprocess spawn)": {
+      "median_ms": 21.820520982146263,
+      "p95_ms": 23.42029195278883,
+      "n": 50
+    }
+  }
+}

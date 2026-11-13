@@ -1,0 +1,12 @@
+15:47:18 [wf12-mixed-7-kill-ckpt] step 1/7 s1: completed earlier, reusing checkpointed output
+15:47:18 [wf12-mixed-7-kill-ckpt] step 2/7 s2: completed earlier, reusing checkpointed output
+15:47:18 [wf12-mixed-7-kill-ckpt] step 3/7 s3: completed earlier, reusing checkpointed output
+15:47:18 [wf12-mixed-7-kill-ckpt] step 4/7 s4: completed earlier, reusing checkpointed output
+15:47:18 [wf12-mixed-7-kill-ckpt] step 5/7 s5: attempt 1 was interrupted by a crash (counts as an attempt)
+15:47:18 [wf12-mixed-7-kill-ckpt] step 5/7 s5: attempt 2/3 started
+15:47:19 [wf12-mixed-7-kill-ckpt] step 5/7 s5: attempt 2 ok in 0.02s, checkpointed
+15:47:19 [wf12-mixed-7-kill-ckpt] step 6/7 s6: attempt 1/3 started
+15:47:19 [wf12-mixed-7-kill-ckpt] step 6/7 s6: attempt 1 ok in 0.02s, checkpointed
+15:47:19 [wf12-mixed-7-kill-ckpt] step 7/7 s7: attempt 1/3 started
+15:47:21 [wf12-mixed-7-kill-ckpt] step 7/7 s7: attempt 1 ok in 2.04s, checkpointed
+15:47:21 [wf12-mixed-7-kill-ckpt] run completed

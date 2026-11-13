@@ -6,3 +6,4 @@ out/
 eval/results/*/eval.db*
 eval/results/*/workspaces/
 .env
+*.egg-info/
