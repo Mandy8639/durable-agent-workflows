@@ -1,0 +1,8 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 54291, "run_id": "wf15-kill-near-end-ckpt-rep0", "step": "s1", "t": 1794602189.612604, "will_timeout": false, "worker_pid": 54290}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 54291, "run_id": "wf15-kill-near-end-ckpt-rep0", "step": "s1", "t": 1794602189.6127832, "worker_pid": 54290}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 54292, "run_id": "wf15-kill-near-end-ckpt-rep0", "step": "s2", "t": 1794602189.637144, "will_timeout": false, "worker_pid": 54290}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 54292, "run_id": "wf15-kill-near-end-ckpt-rep0", "step": "s2", "t": 1794602189.637237, "worker_pid": 54290}
+{"attempt": 1, "event": "start", "index": 2, "kind": "slow", "pid": 54293, "run_id": "wf15-kill-near-end-ckpt-rep0", "step": "s3", "t": 1794602189.6607969, "will_timeout": false, "worker_pid": 54290}
+{"attempt": 1, "event": "end", "index": 2, "kind": "slow", "ok": true, "pid": 54293, "run_id": "wf15-kill-near-end-ckpt-rep0", "step": "s3", "t": 1794602191.666303, "worker_pid": 54290}
+{"attempt": 1, "event": "start", "index": 3, "kind": "slow", "pid": 54294, "run_id": "wf15-kill-near-end-ckpt-rep0", "step": "s4", "t": 1794602191.721667, "will_timeout": false, "worker_pid": 54290}
+{"attempt": 1, "event": "end", "index": 3, "kind": "slow", "ok": true, "pid": 54294, "run_id": "wf15-kill-near-end-ckpt-rep0", "step": "s4", "t": 1794602193.727763, "worker_pid": 54290}

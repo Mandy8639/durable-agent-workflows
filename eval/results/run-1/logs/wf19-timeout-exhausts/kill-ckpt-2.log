@@ -1,0 +1,4 @@
+15:39:28 [wf19-timeout-exhausts-kill-ckpt] step 1/3 s1: completed earlier, reusing checkpointed output
+15:39:28 [wf19-timeout-exhausts-kill-ckpt] step 2/3 s2: attempt 2 was interrupted by a crash (counts as an attempt)
+15:39:28 [wf19-timeout-exhausts-kill-ckpt] step 2/3 s2: attempt 3/3 started
+15:39:29 [wf19-timeout-exhausts-kill-ckpt] step 2/3 s2: FAILED, step 's2' used all 3 attempts; last: attempt 3: timeout: timeout after 1.01s; process killed

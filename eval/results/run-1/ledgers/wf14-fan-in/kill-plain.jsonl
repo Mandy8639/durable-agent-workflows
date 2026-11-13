@@ -1,0 +1,13 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 54274, "run_id": "wf14-fan-in-kill-plain", "step": "a", "t": 1794602184.0729659, "will_timeout": false, "worker_pid": 54273}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 54274, "run_id": "wf14-fan-in-kill-plain", "step": "a", "t": 1794602184.0730948, "worker_pid": 54273}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 54275, "run_id": "wf14-fan-in-kill-plain", "step": "b", "t": 1794602184.0960588, "will_timeout": false, "worker_pid": 54273}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 54275, "run_id": "wf14-fan-in-kill-plain", "step": "b", "t": 1794602184.0961359, "worker_pid": 54273}
+{"attempt": 1, "event": "start", "index": 2, "kind": "slow", "pid": 54276, "run_id": "wf14-fan-in-kill-plain", "step": "c", "t": 1794602184.1186, "will_timeout": false, "worker_pid": 54273}
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 54279, "run_id": "wf14-fan-in-kill-plain-restart", "step": "a", "t": 1794602184.689717, "will_timeout": false, "worker_pid": 54278}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 54279, "run_id": "wf14-fan-in-kill-plain-restart", "step": "a", "t": 1794602184.689811, "worker_pid": 54278}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 54280, "run_id": "wf14-fan-in-kill-plain-restart", "step": "b", "t": 1794602184.712831, "will_timeout": false, "worker_pid": 54278}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 54280, "run_id": "wf14-fan-in-kill-plain-restart", "step": "b", "t": 1794602184.7129102, "worker_pid": 54278}
+{"attempt": 1, "event": "start", "index": 2, "kind": "slow", "pid": 54281, "run_id": "wf14-fan-in-kill-plain-restart", "step": "c", "t": 1794602184.7352068, "will_timeout": false, "worker_pid": 54278}
+{"attempt": 1, "event": "end", "index": 2, "kind": "slow", "ok": true, "pid": 54281, "run_id": "wf14-fan-in-kill-plain-restart", "step": "c", "t": 1794602186.740841, "worker_pid": 54278}
+{"attempt": 1, "event": "start", "index": 3, "kind": "instant", "pid": 54282, "run_id": "wf14-fan-in-kill-plain-restart", "step": "d", "t": 1794602186.7991118, "will_timeout": false, "worker_pid": 54278}
+{"attempt": 1, "event": "end", "index": 3, "kind": "instant", "ok": true, "pid": 54282, "run_id": "wf14-fan-in-kill-plain-restart", "step": "d", "t": 1794602186.799235, "worker_pid": 54278}

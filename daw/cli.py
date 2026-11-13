@@ -22,7 +22,7 @@ DEFAULT_DB = os.environ.get("DAW_DB", ".daw/daw.db")
 
 def _open(db: str) -> tuple[Store, Path]:
     Path(db).parent.mkdir(parents=True, exist_ok=True)
-    return Store(db), Path(db).parent / "workspaces"
+    return Store(db, fullfsync=os.environ.get("DAW_FULLFSYNC") == "1"), Path(db).parent / "workspaces"
 
 
 def _finish(result, as_json: bool) -> int:

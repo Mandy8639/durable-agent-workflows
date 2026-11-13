@@ -1,0 +1,4 @@
+15:32:47 [wf09-always-fail-last-kill-ckpt] step 1/3 s1: completed earlier, reusing checkpointed output
+15:32:47 [wf09-always-fail-last-kill-ckpt] step 2/3 s2: completed earlier, reusing checkpointed output
+15:32:47 [wf09-always-fail-last-kill-ckpt] step 3/3 s3: attempt 3/3 started
+15:32:47 [wf09-always-fail-last-kill-ckpt] step 3/3 s3: FAILED, step 's3' used all 3 attempts; last: attempt 3: error: exit code 1: StepError: always_fail: failing attempt 3 on purpose

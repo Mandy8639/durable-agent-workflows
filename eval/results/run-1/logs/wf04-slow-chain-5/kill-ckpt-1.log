@@ -1,0 +1,6 @@
+run wf04-slow-chain-5-kill-ckpt started (eval/wf04-slow-chain-5); resume with: daw resume wf04-slow-chain-5-kill-ckpt
+15:30:14 [wf04-slow-chain-5-kill-ckpt] step 1/5 s1: attempt 1/3 started
+15:30:16 [wf04-slow-chain-5-kill-ckpt] step 1/5 s1: attempt 1 ok in 2.04s, checkpointed
+15:30:16 [wf04-slow-chain-5-kill-ckpt] step 2/5 s2: attempt 1/3 started
+15:30:16 [wf04-slow-chain-5-kill-ckpt] step 2/5 s2: attempt 1 ok in 0.04s, checkpointed
+15:30:16 [wf04-slow-chain-5-kill-ckpt] step 3/5 s3: attempt 1/3 started

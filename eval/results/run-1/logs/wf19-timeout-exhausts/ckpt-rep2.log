@@ -1,0 +1,9 @@
+run wf19-timeout-exhausts-ckpt-rep2 started (eval/wf19-timeout-exhausts); resume with: daw resume wf19-timeout-exhausts-ckpt-rep2
+15:39:07 [wf19-timeout-exhausts-ckpt-rep2] step 1/3 s1: attempt 1/3 started
+15:39:08 [wf19-timeout-exhausts-ckpt-rep2] step 1/3 s1: attempt 1 ok in 0.02s, checkpointed
+15:39:08 [wf19-timeout-exhausts-ckpt-rep2] step 2/3 s2: attempt 1/3 started
+15:39:09 [wf19-timeout-exhausts-ckpt-rep2] step 2/3 s2: attempt 1: timeout: timeout after 1.01s; process killed; retrying in 1s
+15:39:10 [wf19-timeout-exhausts-ckpt-rep2] step 2/3 s2: attempt 2/3 started
+15:39:11 [wf19-timeout-exhausts-ckpt-rep2] step 2/3 s2: attempt 2: timeout: timeout after 1.01s; process killed; retrying in 1s
+15:39:12 [wf19-timeout-exhausts-ckpt-rep2] step 2/3 s2: attempt 3/3 started
+15:39:13 [wf19-timeout-exhausts-ckpt-rep2] step 2/3 s2: FAILED, step 's2' used all 3 attempts; last: attempt 3: timeout: timeout after 1.01s; process killed

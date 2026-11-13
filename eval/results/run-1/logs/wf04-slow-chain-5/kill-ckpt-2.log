@@ -1,0 +1,10 @@
+15:30:17 [wf04-slow-chain-5-kill-ckpt] step 1/5 s1: completed earlier, reusing checkpointed output
+15:30:17 [wf04-slow-chain-5-kill-ckpt] step 2/5 s2: completed earlier, reusing checkpointed output
+15:30:17 [wf04-slow-chain-5-kill-ckpt] step 3/5 s3: attempt 1 was interrupted by a crash (counts as an attempt)
+15:30:17 [wf04-slow-chain-5-kill-ckpt] step 3/5 s3: attempt 2/3 started
+15:30:19 [wf04-slow-chain-5-kill-ckpt] step 3/5 s3: attempt 2 ok in 2.05s, checkpointed
+15:30:19 [wf04-slow-chain-5-kill-ckpt] step 4/5 s4: attempt 1/3 started
+15:30:20 [wf04-slow-chain-5-kill-ckpt] step 4/5 s4: attempt 1 ok in 0.04s, checkpointed
+15:30:20 [wf04-slow-chain-5-kill-ckpt] step 5/5 s5: attempt 1/3 started
+15:30:22 [wf04-slow-chain-5-kill-ckpt] step 5/5 s5: attempt 1 ok in 2.05s, checkpointed
+15:30:22 [wf04-slow-chain-5-kill-ckpt] run completed

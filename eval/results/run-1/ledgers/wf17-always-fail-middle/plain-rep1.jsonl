@@ -1,0 +1,12 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 54402, "run_id": "wf17-always-fail-middle-plain-rep1", "step": "s1", "t": 1794602257.5501828, "will_timeout": false, "worker_pid": 54401}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 54402, "run_id": "wf17-always-fail-middle-plain-rep1", "step": "s1", "t": 1794602257.550345, "worker_pid": 54401}
+{"attempt": 1, "event": "start", "index": 1, "kind": "fail_once", "pid": 54403, "run_id": "wf17-always-fail-middle-plain-rep1", "step": "s2", "t": 1794602257.575284, "will_timeout": false, "worker_pid": 54401}
+{"attempt": 1, "event": "end", "index": 1, "kind": "fail_once", "ok": false, "pid": 54403, "run_id": "wf17-always-fail-middle-plain-rep1", "step": "s2", "t": 1794602257.575391, "worker_pid": 54401}
+{"attempt": 2, "event": "start", "index": 1, "kind": "fail_once", "pid": 54404, "run_id": "wf17-always-fail-middle-plain-rep1", "step": "s2", "t": 1794602258.634225, "will_timeout": false, "worker_pid": 54401}
+{"attempt": 2, "event": "end", "index": 1, "kind": "fail_once", "ok": true, "pid": 54404, "run_id": "wf17-always-fail-middle-plain-rep1", "step": "s2", "t": 1794602258.6344252, "worker_pid": 54401}
+{"attempt": 1, "event": "start", "index": 2, "kind": "always_fail", "pid": 54405, "run_id": "wf17-always-fail-middle-plain-rep1", "step": "s3", "t": 1794602258.6669078, "will_timeout": false, "worker_pid": 54401}
+{"attempt": 1, "event": "end", "index": 2, "kind": "always_fail", "ok": false, "pid": 54405, "run_id": "wf17-always-fail-middle-plain-rep1", "step": "s3", "t": 1794602258.66704, "worker_pid": 54401}
+{"attempt": 2, "event": "start", "index": 2, "kind": "always_fail", "pid": 54406, "run_id": "wf17-always-fail-middle-plain-rep1", "step": "s3", "t": 1794602259.70618, "will_timeout": false, "worker_pid": 54401}
+{"attempt": 2, "event": "end", "index": 2, "kind": "always_fail", "ok": false, "pid": 54406, "run_id": "wf17-always-fail-middle-plain-rep1", "step": "s3", "t": 1794602259.7063198, "worker_pid": 54401}
+{"attempt": 3, "event": "start", "index": 2, "kind": "always_fail", "pid": 54407, "run_id": "wf17-always-fail-middle-plain-rep1", "step": "s3", "t": 1794602260.767783, "will_timeout": false, "worker_pid": 54401}
+{"attempt": 3, "event": "end", "index": 2, "kind": "always_fail", "ok": false, "pid": 54407, "run_id": "wf17-always-fail-middle-plain-rep1", "step": "s3", "t": 1794602260.7680068, "worker_pid": 54401}

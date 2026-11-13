@@ -1,0 +1,12 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 53743, "run_id": "wf07-kill-during-timeout-kill-plain", "step": "s1", "t": 1794601873.711311, "will_timeout": false, "worker_pid": 53742}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 53743, "run_id": "wf07-kill-during-timeout-kill-plain", "step": "s1", "t": 1794601873.71146, "worker_pid": 53742}
+{"attempt": 1, "event": "start", "index": 1, "kind": "timeout", "pid": 53744, "run_id": "wf07-kill-during-timeout-kill-plain", "step": "s2", "t": 1794601873.733278, "will_timeout": true, "worker_pid": 53742}
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 53748, "run_id": "wf07-kill-during-timeout-kill-plain-restart", "step": "s1", "t": 1794601874.3215628, "will_timeout": false, "worker_pid": 53747}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 53748, "run_id": "wf07-kill-during-timeout-kill-plain-restart", "step": "s1", "t": 1794601874.321695, "worker_pid": 53747}
+{"attempt": 1, "event": "start", "index": 1, "kind": "timeout", "pid": 53749, "run_id": "wf07-kill-during-timeout-kill-plain-restart", "step": "s2", "t": 1794601874.344617, "will_timeout": true, "worker_pid": 53747}
+{"attempt": 2, "event": "start", "index": 1, "kind": "timeout", "pid": 53750, "run_id": "wf07-kill-during-timeout-kill-plain-restart", "step": "s2", "t": 1794601876.395076, "will_timeout": false, "worker_pid": 53747}
+{"attempt": 2, "event": "end", "index": 1, "kind": "timeout", "ok": true, "pid": 53750, "run_id": "wf07-kill-during-timeout-kill-plain-restart", "step": "s2", "t": 1794601876.395526, "worker_pid": 53747}
+{"attempt": 1, "event": "start", "index": 2, "kind": "instant", "pid": 53751, "run_id": "wf07-kill-during-timeout-kill-plain-restart", "step": "s3", "t": 1794601876.425022, "will_timeout": false, "worker_pid": 53747}
+{"attempt": 1, "event": "end", "index": 2, "kind": "instant", "ok": true, "pid": 53751, "run_id": "wf07-kill-during-timeout-kill-plain-restart", "step": "s3", "t": 1794601876.425157, "worker_pid": 53747}
+{"attempt": 1, "event": "start", "index": 3, "kind": "instant", "pid": 53752, "run_id": "wf07-kill-during-timeout-kill-plain-restart", "step": "s4", "t": 1794601876.4495842, "will_timeout": false, "worker_pid": 53747}
+{"attempt": 1, "event": "end", "index": 3, "kind": "instant", "ok": true, "pid": 53752, "run_id": "wf07-kill-during-timeout-kill-plain-restart", "step": "s4", "t": 1794601876.449697, "worker_pid": 53747}

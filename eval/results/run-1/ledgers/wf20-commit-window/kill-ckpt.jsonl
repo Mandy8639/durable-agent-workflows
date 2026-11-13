@@ -1,0 +1,14 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 54618, "run_id": "wf20-commit-window-kill-ckpt", "step": "s1", "t": 1794602371.050719, "will_timeout": false, "worker_pid": 54617}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 54618, "run_id": "wf20-commit-window-kill-ckpt", "step": "s1", "t": 1794602371.050858, "worker_pid": 54617}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 54619, "run_id": "wf20-commit-window-kill-ckpt", "step": "s2", "t": 1794602371.0730271, "will_timeout": false, "worker_pid": 54617}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 54619, "run_id": "wf20-commit-window-kill-ckpt", "step": "s2", "t": 1794602371.0731142, "worker_pid": 54617}
+{"attempt": 1, "event": "start", "index": 2, "kind": "instant", "pid": 54620, "run_id": "wf20-commit-window-kill-ckpt", "step": "s3", "t": 1794602371.095722, "will_timeout": false, "worker_pid": 54617}
+{"attempt": 1, "event": "end", "index": 2, "kind": "instant", "ok": true, "pid": 54620, "run_id": "wf20-commit-window-kill-ckpt", "step": "s3", "t": 1794602371.095818, "worker_pid": 54617}
+{"attempt": 2, "event": "start", "index": 2, "kind": "instant", "pid": 54622, "run_id": "wf20-commit-window-kill-ckpt", "step": "s3", "t": 1794602371.1445918, "will_timeout": false, "worker_pid": 54621}
+{"attempt": 2, "event": "end", "index": 2, "kind": "instant", "ok": true, "pid": 54622, "run_id": "wf20-commit-window-kill-ckpt", "step": "s3", "t": 1794602371.1446872, "worker_pid": 54621}
+{"attempt": 1, "event": "start", "index": 3, "kind": "instant", "pid": 54623, "run_id": "wf20-commit-window-kill-ckpt", "step": "s4", "t": 1794602371.166958, "will_timeout": false, "worker_pid": 54621}
+{"attempt": 1, "event": "end", "index": 3, "kind": "instant", "ok": true, "pid": 54623, "run_id": "wf20-commit-window-kill-ckpt", "step": "s4", "t": 1794602371.1670651, "worker_pid": 54621}
+{"attempt": 1, "event": "start", "index": 4, "kind": "instant", "pid": 54624, "run_id": "wf20-commit-window-kill-ckpt", "step": "s5", "t": 1794602371.189041, "will_timeout": false, "worker_pid": 54621}
+{"attempt": 1, "event": "end", "index": 4, "kind": "instant", "ok": true, "pid": 54624, "run_id": "wf20-commit-window-kill-ckpt", "step": "s5", "t": 1794602371.189125, "worker_pid": 54621}
+{"attempt": 1, "event": "start", "index": 5, "kind": "instant", "pid": 54625, "run_id": "wf20-commit-window-kill-ckpt", "step": "s6", "t": 1794602371.211573, "will_timeout": false, "worker_pid": 54621}
+{"attempt": 1, "event": "end", "index": 5, "kind": "instant", "ok": true, "pid": 54625, "run_id": "wf20-commit-window-kill-ckpt", "step": "s6", "t": 1794602371.211679, "worker_pid": 54621}

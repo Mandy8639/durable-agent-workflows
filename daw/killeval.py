@@ -114,21 +114,27 @@ def outcome(result: dict | None) -> dict | None:
 
 
 def timeout_checks(events: list[dict], worker_pid: int, final: dict | None, max_attempts: int,
-                   skip_pids: set[int] = frozenset()) -> tuple[int, int, list[str]]:
-    """(handled, total, problems) for will_timeout attempts run by `worker_pid`."""
+                   skip_pids: set[int] = frozenset(), worker_killed: bool = False) -> tuple[int, int, list[str]]:
+    """(handled, total, problems) for will_timeout attempts run by `worker_pid`.
+
+    Handled means: the attempt never wrote its `end` record (the process really died) and the
+    engine then followed policy (started the next attempt, or failed the run after the last).
+    """
     ended = {e["pid"] for e in events if e["event"] == "end"}
     starts = [e for e in events if e["worker_pid"] == worker_pid and e["event"] == "start"]
     handled, total, problems = 0, 0, []
     for e in starts:
         if not e.get("will_timeout") or e["pid"] in skip_pids:
             continue
-        total += 1
         killed = e["pid"] not in ended
         if e["attempt"] < max_attempts:
             moved_on = any(s["step"] == e["step"] and s["attempt"] == e["attempt"] + 1
                            and s["run_id"] == e["run_id"] for s in starts)
         else:
             moved_on = bool(final and final["status"] == "failed" and final["failed_step"] == e["step"])
+        if worker_killed and killed and not moved_on:
+            continue  # our SIGKILL landed before the engine's next move: nothing to judge
+        total += 1
         if killed and moved_on:
             handled += 1
         else:
@@ -147,8 +153,8 @@ def run_workflow(wspec: dict, wf, out: Path, db: Path, reps: int, max_attempts: 
                  "expect": wspec["expect"], "timeouts": {"ckpt": [0, 0], "plain": [0, 0]},
                  "timeout_problems": []}
 
-    def add_timeouts(cond: str, events, pid, final, skip_pids=frozenset()):
-        h, t, probs = timeout_checks(events, pid, final, max_attempts, skip_pids)
+    def add_timeouts(cond: str, events, pid, final, skip_pids=frozenset(), worker_killed=False):
+        h, t, probs = timeout_checks(events, pid, final, max_attempts, skip_pids, worker_killed)
         rec["timeouts"][cond][0] += h
         rec["timeouts"][cond][1] += t
         rec["timeout_problems"] += [f"{cond}: {p}" for p in probs]
@@ -222,9 +228,13 @@ def kill_trial(cond: str, wspec: dict, wf, out: Path, db: Path, golden: dict | N
     p1 = [e for e in events if e["worker_pid"] == w1.pid]
     p2 = [e for e in events if w2 is not None and e["worker_pid"] == w2.pid]
     finished_before = {e["step"] for e in p1 if e["event"] == "end" and e.get("ok")}
-    started_p1 = {e["pid"]: e for e in p1 if e["event"] == "start"}
+    # Steps run one at a time, so only the last attempt started before the kill can be in
+    # flight; earlier attempts without an `end` record are timeouts the engine killed itself.
+    starts_p1 = [e for e in p1 if e["event"] == "start"]
     ended_p1 = {e["pid"] for e in p1 if e["event"] == "end"}
-    in_flight = sorted({e["step"] for pid, e in started_p1.items() if pid not in ended_p1})
+    last = starts_p1[-1] if starts_p1 and delivered else None
+    in_flight_pids = {last["pid"]} if last and last["pid"] not in ended_p1 else set()
+    in_flight = [last["step"]] if in_flight_pids else []
     starts_p2 = [e for e in p2 if e["event"] == "start"]
 
     if cond == "ckpt":
@@ -235,7 +245,7 @@ def kill_trial(cond: str, wspec: dict, wf, out: Path, db: Path, golden: dict | N
         window = None
 
     # timeout attempts: the in-flight one at kill time was ended by our SIGKILL, not the engine
-    add_timeouts(cond, events, w1.pid, first_result, skip_pids={pid for pid in started_p1 if pid not in ended_p1})
+    add_timeouts(cond, events, w1.pid, first_result, skip_pids=in_flight_pids, worker_killed=delivered)
     if w2 is not None:
         add_timeouts(cond, events, w2.pid, final)
 

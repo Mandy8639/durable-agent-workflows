@@ -1,0 +1,7 @@
+15:37:07 [wf15-kill-near-end-kill-ckpt] step 1/4 s1: completed earlier, reusing checkpointed output
+15:37:07 [wf15-kill-near-end-kill-ckpt] step 2/4 s2: completed earlier, reusing checkpointed output
+15:37:07 [wf15-kill-near-end-kill-ckpt] step 3/4 s3: completed earlier, reusing checkpointed output
+15:37:07 [wf15-kill-near-end-kill-ckpt] step 4/4 s4: attempt 1 was interrupted by a crash (counts as an attempt)
+15:37:07 [wf15-kill-near-end-kill-ckpt] step 4/4 s4: attempt 2/3 started
+15:37:09 [wf15-kill-near-end-kill-ckpt] step 4/4 s4: attempt 2 ok in 2.04s, checkpointed
+15:37:09 [wf15-kill-near-end-kill-ckpt] run completed

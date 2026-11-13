@@ -1,0 +1,17 @@
+[project]
+name = "durable-agent-workflows"
+version = "0.1.0"
+description = "A small single-machine durable execution engine for agent workflows: SQLite checkpoints, resume after kill, sandboxed subprocess steps."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+daw = "daw.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["daw*", "demo*"]

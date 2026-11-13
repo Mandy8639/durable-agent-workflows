@@ -1,0 +1,3 @@
+15:31:13 [wf07-kill-during-timeout-kill-plain] step 1/4 s1: attempt 1/3 started
+15:31:13 [wf07-kill-during-timeout-kill-plain] step 1/4 s1: attempt 1 ok in 0.02s, checkpointed
+15:31:13 [wf07-kill-during-timeout-kill-plain] step 2/4 s2: attempt 1/3 started

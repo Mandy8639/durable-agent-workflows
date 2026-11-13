@@ -1,0 +1,11 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "fail_once", "pid": 53646, "run_id": "wf05-fail-once-first-kill-ckpt", "step": "s1", "t": 1794601847.092918, "will_timeout": false, "worker_pid": 53645}
+{"attempt": 1, "event": "end", "index": 0, "kind": "fail_once", "ok": false, "pid": 53646, "run_id": "wf05-fail-once-first-kill-ckpt", "step": "s1", "t": 1794601847.093038, "worker_pid": 53645}
+{"attempt": 2, "event": "start", "index": 0, "kind": "fail_once", "pid": 53647, "run_id": "wf05-fail-once-first-kill-ckpt", "step": "s1", "t": 1794601848.1520488, "will_timeout": false, "worker_pid": 53645}
+{"attempt": 2, "event": "end", "index": 0, "kind": "fail_once", "ok": true, "pid": 53647, "run_id": "wf05-fail-once-first-kill-ckpt", "step": "s1", "t": 1794601848.1521752, "worker_pid": 53645}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 53648, "run_id": "wf05-fail-once-first-kill-ckpt", "step": "s2", "t": 1794601848.179996, "will_timeout": false, "worker_pid": 53645}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 53648, "run_id": "wf05-fail-once-first-kill-ckpt", "step": "s2", "t": 1794601848.180098, "worker_pid": 53645}
+{"attempt": 1, "event": "start", "index": 2, "kind": "instant", "pid": 53649, "run_id": "wf05-fail-once-first-kill-ckpt", "step": "s3", "t": 1794601848.203734, "will_timeout": false, "worker_pid": 53645}
+{"attempt": 1, "event": "end", "index": 2, "kind": "instant", "ok": true, "pid": 53649, "run_id": "wf05-fail-once-first-kill-ckpt", "step": "s3", "t": 1794601848.203833, "worker_pid": 53645}
+{"attempt": 1, "event": "start", "index": 3, "kind": "slow", "pid": 53650, "run_id": "wf05-fail-once-first-kill-ckpt", "step": "s4", "t": 1794601848.226175, "will_timeout": false, "worker_pid": 53645}
+{"attempt": 2, "event": "start", "index": 3, "kind": "slow", "pid": 53653, "run_id": "wf05-fail-once-first-kill-ckpt", "step": "s4", "t": 1794601849.318987, "will_timeout": false, "worker_pid": 53652}
+{"attempt": 2, "event": "end", "index": 3, "kind": "slow", "ok": true, "pid": 53653, "run_id": "wf05-fail-once-first-kill-ckpt", "step": "s4", "t": 1794601851.329567, "worker_pid": 53652}

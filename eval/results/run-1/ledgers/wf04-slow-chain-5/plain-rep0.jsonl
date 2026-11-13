@@ -1,0 +1,10 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "slow", "pid": 53533, "run_id": "wf04-slow-chain-5-plain-rep0", "step": "s1", "t": 1794601773.901417, "will_timeout": false, "worker_pid": 53532}
+{"attempt": 1, "event": "end", "index": 0, "kind": "slow", "ok": true, "pid": 53533, "run_id": "wf04-slow-chain-5-plain-rep0", "step": "s1", "t": 1794601775.912121, "worker_pid": 53532}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 53534, "run_id": "wf04-slow-chain-5-plain-rep0", "step": "s2", "t": 1794601775.964252, "will_timeout": false, "worker_pid": 53532}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 53534, "run_id": "wf04-slow-chain-5-plain-rep0", "step": "s2", "t": 1794601775.9643662, "worker_pid": 53532}
+{"attempt": 1, "event": "start", "index": 2, "kind": "slow", "pid": 53535, "run_id": "wf04-slow-chain-5-plain-rep0", "step": "s3", "t": 1794601775.991474, "will_timeout": false, "worker_pid": 53532}
+{"attempt": 1, "event": "end", "index": 2, "kind": "slow", "ok": true, "pid": 53535, "run_id": "wf04-slow-chain-5-plain-rep0", "step": "s3", "t": 1794601778.002335, "worker_pid": 53532}
+{"attempt": 1, "event": "start", "index": 3, "kind": "instant", "pid": 53536, "run_id": "wf04-slow-chain-5-plain-rep0", "step": "s4", "t": 1794601778.0606, "will_timeout": false, "worker_pid": 53532}
+{"attempt": 1, "event": "end", "index": 3, "kind": "instant", "ok": true, "pid": 53536, "run_id": "wf04-slow-chain-5-plain-rep0", "step": "s4", "t": 1794601778.060732, "worker_pid": 53532}
+{"attempt": 1, "event": "start", "index": 4, "kind": "slow", "pid": 53537, "run_id": "wf04-slow-chain-5-plain-rep0", "step": "s5", "t": 1794601778.086588, "will_timeout": false, "worker_pid": 53532}
+{"attempt": 1, "event": "end", "index": 4, "kind": "slow", "ok": true, "pid": 53537, "run_id": "wf04-slow-chain-5-plain-rep0", "step": "s5", "t": 1794601780.097125, "worker_pid": 53532}

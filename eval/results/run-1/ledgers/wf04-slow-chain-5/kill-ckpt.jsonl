@@ -1,0 +1,11 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "slow", "pid": 53579, "run_id": "wf04-slow-chain-5-kill-ckpt", "step": "s1", "t": 1794601814.7832341, "will_timeout": false, "worker_pid": 53578}
+{"attempt": 1, "event": "end", "index": 0, "kind": "slow", "ok": true, "pid": 53579, "run_id": "wf04-slow-chain-5-kill-ckpt", "step": "s1", "t": 1794601816.794004, "worker_pid": 53578}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 53580, "run_id": "wf04-slow-chain-5-kill-ckpt", "step": "s2", "t": 1794601816.8489668, "will_timeout": false, "worker_pid": 53578}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 53580, "run_id": "wf04-slow-chain-5-kill-ckpt", "step": "s2", "t": 1794601816.849087, "worker_pid": 53578}
+{"attempt": 1, "event": "start", "index": 2, "kind": "slow", "pid": 53581, "run_id": "wf04-slow-chain-5-kill-ckpt", "step": "s3", "t": 1794601816.87608, "will_timeout": false, "worker_pid": 53578}
+{"attempt": 2, "event": "start", "index": 2, "kind": "slow", "pid": 53583, "run_id": "wf04-slow-chain-5-kill-ckpt", "step": "s3", "t": 1794601817.9670231, "will_timeout": false, "worker_pid": 53582}
+{"attempt": 2, "event": "end", "index": 2, "kind": "slow", "ok": true, "pid": 53583, "run_id": "wf04-slow-chain-5-kill-ckpt", "step": "s3", "t": 1794601819.977976, "worker_pid": 53582}
+{"attempt": 1, "event": "start", "index": 3, "kind": "instant", "pid": 53584, "run_id": "wf04-slow-chain-5-kill-ckpt", "step": "s4", "t": 1794601820.031615, "will_timeout": false, "worker_pid": 53582}
+{"attempt": 1, "event": "end", "index": 3, "kind": "instant", "ok": true, "pid": 53584, "run_id": "wf04-slow-chain-5-kill-ckpt", "step": "s4", "t": 1794601820.031739, "worker_pid": 53582}
+{"attempt": 1, "event": "start", "index": 4, "kind": "slow", "pid": 53585, "run_id": "wf04-slow-chain-5-kill-ckpt", "step": "s5", "t": 1794601820.058021, "will_timeout": false, "worker_pid": 53582}
+{"attempt": 1, "event": "end", "index": 4, "kind": "slow", "ok": true, "pid": 53585, "run_id": "wf04-slow-chain-5-kill-ckpt", "step": "s5", "t": 1794601822.068533, "worker_pid": 53582}

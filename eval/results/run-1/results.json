@@ -1,0 +1,3276 @@
+{
+  "meta": {
+    "eval_wall_seconds": 632.9390113750705,
+    "model_calls": 0,
+    "partial": false,
+    "platform": "Darwin arm64, Python 3.12.14",
+    "reps": 3,
+    "suite": "kill-test-v1",
+    "suite_sha256": "7a4268899c385d0f2ded1010ca11d4ef5fc52adcd2ebb273fa4b5ad867b1b9e0",
+    "when": "2026-11-13 15:29:05 EST",
+    "workflows": [
+      "wf01-instant-3",
+      "wf02-instant-8",
+      "wf03-slow-middle",
+      "wf04-slow-chain-5",
+      "wf05-fail-once-first",
+      "wf06-kill-in-backoff",
+      "wf07-kill-during-timeout",
+      "wf08-kill-after-timeout-retry",
+      "wf09-always-fail-last",
+      "wf10-always-fail-first",
+      "wf11-mixed-6",
+      "wf12-mixed-7",
+      "wf13-mixed-8",
+      "wf14-fan-in",
+      "wf15-kill-near-end",
+      "wf16-kill-first-step",
+      "wf17-always-fail-middle",
+      "wf18-double-timeout",
+      "wf19-timeout-exhausts",
+      "wf20-commit-window"
+    ]
+  },
+  "summary": {
+    "conditions": {
+      "ckpt": {
+        "after_kill": 46,
+        "delivered": 20,
+        "output_match": 20,
+        "recovery_median": 1.616986666515004,
+        "redundant": 0,
+        "status_match": 20,
+        "terminal": 20,
+        "timeouts": [
+          32,
+          32
+        ],
+        "window": 5
+      },
+      "plain": {
+        "after_kill": 106,
+        "delivered": 20,
+        "output_match": 20,
+        "recovery_median": 3.2544411250273697,
+        "redundant": 54,
+        "status_match": 20,
+        "terminal": 20,
+        "timeouts": [
+          40,
+          40
+        ],
+        "window": 0
+      }
+    },
+    "overhead": {
+      "median_extra_ms_per_step": -0.43085072926866513,
+      "median_overhead_pct": -0.05285756685373677,
+      "median_overhead_pct_instant_only": 0.4724005122712427,
+      "median_wall_ckpt": 3.267213333514519,
+      "median_wall_plain": 3.267951833549887
+    }
+  },
+  "workflows": [
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "a": {
+            "digest": "3483736002c5bc55",
+            "kind": "instant",
+            "step": "a"
+          },
+          "b": {
+            "digest": "b8ba073f0538de26",
+            "kind": "instant",
+            "step": "b"
+          },
+          "c": {
+            "digest": "df90232e2268fb8f",
+            "kind": "instant",
+            "step": "c"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 0.0,
+        "on": "start",
+        "step": "c"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "a",
+          "b"
+        ],
+        "commit_window_reexecutions": 1,
+        "executions_after_kill": 1,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "a": {
+              "digest": "3483736002c5bc55",
+              "kind": "instant",
+              "step": "a"
+            },
+            "b": {
+              "digest": "b8ba073f0538de26",
+              "kind": "instant",
+              "step": "b"
+            },
+            "c": {
+              "digest": "df90232e2268fb8f",
+              "kind": "instant",
+              "step": "c"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "a",
+          "b",
+          "c"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 0.052299458999186754,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 3,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "a": {
+              "digest": "3483736002c5bc55",
+              "kind": "instant",
+              "step": "a"
+            },
+            "b": {
+              "digest": "b8ba073f0538de26",
+              "kind": "instant",
+              "step": "b"
+            },
+            "c": {
+              "digest": "df90232e2268fb8f",
+              "kind": "instant",
+              "step": "c"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "a",
+          "b",
+          "c"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 0.09848883398808539,
+        "redundant_executions": 3,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "instant",
+        "instant"
+      ],
+      "steps": 3,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          0.11867070791777223,
+          0.10053375002462417,
+          0.1008078750455752
+        ],
+        "plain": [
+          0.10159670899156481,
+          0.10016433394048363,
+          0.0993088340619579
+        ]
+      },
+      "workflow": "wf01-instant-3"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "c5148d5d6bbf087b",
+            "kind": "instant",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "24a1249af45bde37",
+            "kind": "instant",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "4f2583a3dcfe9713",
+            "kind": "instant",
+            "step": "s3"
+          },
+          "s4": {
+            "digest": "ea77968ff73b809f",
+            "kind": "instant",
+            "step": "s4"
+          },
+          "s5": {
+            "digest": "6ea826bbb6beeac1",
+            "kind": "instant",
+            "step": "s5"
+          },
+          "s6": {
+            "digest": "6733a7af40e763cc",
+            "kind": "instant",
+            "step": "s6"
+          },
+          "s7": {
+            "digest": "098eb2dc6f929a51",
+            "kind": "instant",
+            "step": "s7"
+          },
+          "s8": {
+            "digest": "30ab96dc92eea14d",
+            "kind": "instant",
+            "step": "s8"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 0.0,
+        "on": "start",
+        "step": "s5"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1",
+          "s2",
+          "s3",
+          "s4"
+        ],
+        "commit_window_reexecutions": 1,
+        "executions_after_kill": 4,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "c5148d5d6bbf087b",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "24a1249af45bde37",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "4f2583a3dcfe9713",
+              "kind": "instant",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "ea77968ff73b809f",
+              "kind": "instant",
+              "step": "s4"
+            },
+            "s5": {
+              "digest": "6ea826bbb6beeac1",
+              "kind": "instant",
+              "step": "s5"
+            },
+            "s6": {
+              "digest": "6733a7af40e763cc",
+              "kind": "instant",
+              "step": "s6"
+            },
+            "s7": {
+              "digest": "098eb2dc6f929a51",
+              "kind": "instant",
+              "step": "s7"
+            },
+            "s8": {
+              "digest": "30ab96dc92eea14d",
+              "kind": "instant",
+              "step": "s8"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3",
+          "s4",
+          "s5"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 0.12149362498894334,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 8,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "c5148d5d6bbf087b",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "24a1249af45bde37",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "4f2583a3dcfe9713",
+              "kind": "instant",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "ea77968ff73b809f",
+              "kind": "instant",
+              "step": "s4"
+            },
+            "s5": {
+              "digest": "6ea826bbb6beeac1",
+              "kind": "instant",
+              "step": "s5"
+            },
+            "s6": {
+              "digest": "6733a7af40e763cc",
+              "kind": "instant",
+              "step": "s6"
+            },
+            "s7": {
+              "digest": "098eb2dc6f929a51",
+              "kind": "instant",
+              "step": "s7"
+            },
+            "s8": {
+              "digest": "30ab96dc92eea14d",
+              "kind": "instant",
+              "step": "s8"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3",
+          "s4",
+          "s5"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 0.21593154198490083,
+        "redundant_executions": 5,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "instant",
+        "instant",
+        "instant",
+        "instant",
+        "instant",
+        "instant",
+        "instant"
+      ],
+      "steps": 8,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          0.21246491698548198,
+          0.2132675409084186,
+          0.21326841600239277
+        ],
+        "plain": [
+          0.2126345420256257,
+          0.21237087505869567,
+          0.2165667499648407
+        ]
+      },
+      "workflow": "wf02-instant-8"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "a": {
+            "digest": "568fd79c6739e034",
+            "kind": "instant",
+            "step": "a"
+          },
+          "b": {
+            "digest": "f6f599773508dd65",
+            "kind": "slow",
+            "step": "b"
+          },
+          "c": {
+            "digest": "3a7797891246e4f4",
+            "kind": "instant",
+            "step": "c"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 1.0,
+        "on": "start",
+        "step": "b"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "a"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 2,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "a": {
+              "digest": "568fd79c6739e034",
+              "kind": "instant",
+              "step": "a"
+            },
+            "b": {
+              "digest": "f6f599773508dd65",
+              "kind": "slow",
+              "step": "b"
+            },
+            "c": {
+              "digest": "3a7797891246e4f4",
+              "kind": "instant",
+              "step": "c"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "a"
+        ],
+        "in_flight_at_kill": [
+          "b"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.1447144170524552,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 3,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "a": {
+              "digest": "568fd79c6739e034",
+              "kind": "instant",
+              "step": "a"
+            },
+            "b": {
+              "digest": "f6f599773508dd65",
+              "kind": "slow",
+              "step": "b"
+            },
+            "c": {
+              "digest": "3a7797891246e4f4",
+              "kind": "instant",
+              "step": "c"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "a"
+        ],
+        "in_flight_at_kill": [
+          "b"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.1636048749787733,
+        "redundant_executions": 1,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "slow",
+        "instant"
+      ],
+      "steps": 3,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          2.1343830839032307,
+          2.146943125058897,
+          2.1501041250303388
+        ],
+        "plain": [
+          2.1497181670274585,
+          2.1475127089070156,
+          2.1496636669617146
+        ]
+      },
+      "workflow": "wf03-slow-middle"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "5056807d381b79df",
+            "kind": "slow",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "835f6c04e86e52a4",
+            "kind": "instant",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "c5944cef476d1ed0",
+            "kind": "slow",
+            "step": "s3"
+          },
+          "s4": {
+            "digest": "0621b919a8f7af98",
+            "kind": "instant",
+            "step": "s4"
+          },
+          "s5": {
+            "digest": "417702a916dcdb9d",
+            "kind": "slow",
+            "step": "s5"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 1.0,
+        "on": "start",
+        "step": "s3"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1",
+          "s2"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 3,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "5056807d381b79df",
+              "kind": "slow",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "835f6c04e86e52a4",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "c5944cef476d1ed0",
+              "kind": "slow",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "0621b919a8f7af98",
+              "kind": "instant",
+              "step": "s4"
+            },
+            "s5": {
+              "digest": "417702a916dcdb9d",
+              "kind": "slow",
+              "step": "s5"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2"
+        ],
+        "in_flight_at_kill": [
+          "s3"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 4.205253666965291,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 5,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "5056807d381b79df",
+              "kind": "slow",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "835f6c04e86e52a4",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "c5944cef476d1ed0",
+              "kind": "slow",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "0621b919a8f7af98",
+              "kind": "instant",
+              "step": "s4"
+            },
+            "s5": {
+              "digest": "417702a916dcdb9d",
+              "kind": "slow",
+              "step": "s5"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2"
+        ],
+        "in_flight_at_kill": [
+          "s3"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 6.305684583028778,
+        "redundant_executions": 2,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "slow",
+        "instant",
+        "slow",
+        "instant",
+        "slow"
+      ],
+      "steps": 5,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          6.266522791003808,
+          6.267706500017084,
+          6.274492166005075
+        ],
+        "plain": [
+          6.286520584020764,
+          6.288727624923922,
+          6.278374333051033
+        ]
+      },
+      "workflow": "wf04-slow-chain-5"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "39260260e6c3c481",
+            "kind": "fail_once",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "57d21e56c289a1c6",
+            "kind": "instant",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "8a818a27acdac641",
+            "kind": "instant",
+            "step": "s3"
+          },
+          "s4": {
+            "digest": "3d5f8062166d48ea",
+            "kind": "slow",
+            "step": "s4"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 1.0,
+        "on": "start",
+        "step": "s4"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 1,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "39260260e6c3c481",
+              "kind": "fail_once",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "57d21e56c289a1c6",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "8a818a27acdac641",
+              "kind": "instant",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "3d5f8062166d48ea",
+              "kind": "slow",
+              "step": "s4"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "in_flight_at_kill": [
+          "s4"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.1093178750015795,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 5,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "39260260e6c3c481",
+              "kind": "fail_once",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "57d21e56c289a1c6",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "8a818a27acdac641",
+              "kind": "instant",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "3d5f8062166d48ea",
+              "kind": "slow",
+              "step": "s4"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "in_flight_at_kill": [
+          "s4"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 3.255577916977927,
+        "redundant_executions": 4,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "fail_once",
+        "instant",
+        "instant",
+        "slow"
+      ],
+      "steps": 4,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          3.231057250057347,
+          3.2469559999881312,
+          3.2360729170031846
+        ],
+        "plain": [
+          3.237432083929889,
+          3.243093708064407,
+          3.2563020419329405
+        ]
+      },
+      "workflow": "wf05-fail-once-first"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "b49a21e009cce897",
+            "kind": "instant",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "3a9c73f023e9c460",
+            "kind": "fail_once",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "acda13ed28d508e5",
+            "kind": "instant",
+            "step": "s3"
+          },
+          "s4": {
+            "digest": "9279ad8e8b598c5e",
+            "kind": "instant",
+            "step": "s4"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 0.3,
+        "on": "end",
+        "step": "s2"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 3,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "b49a21e009cce897",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "3a9c73f023e9c460",
+              "kind": "fail_once",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "acda13ed28d508e5",
+              "kind": "instant",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "9279ad8e8b598c5e",
+              "kind": "instant",
+              "step": "s4"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 0.12912283395417035,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 5,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "b49a21e009cce897",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "3a9c73f023e9c460",
+              "kind": "fail_once",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "acda13ed28d508e5",
+              "kind": "instant",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "9279ad8e8b598c5e",
+              "kind": "instant",
+              "step": "s4"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 1.2357662500580773,
+        "redundant_executions": 1,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "fail_once",
+        "instant",
+        "instant"
+      ],
+      "steps": 4,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          1.2080142080085352,
+          1.1916734999977052,
+          1.1841378749813884
+        ],
+        "plain": [
+          1.1882446249946952,
+          1.1879725839244202,
+          1.1886328749824315
+        ]
+      },
+      "workflow": "wf06-kill-in-backoff"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "7654dd2b5f045d89",
+            "kind": "instant",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "38fcf987fabd82f8",
+            "kind": "timeout",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "344ace59e2f482d0",
+            "kind": "instant",
+            "step": "s3"
+          },
+          "s4": {
+            "digest": "dafb6b33ef151474",
+            "kind": "instant",
+            "step": "s4"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 0.5,
+        "on": "start",
+        "step": "s2"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 3,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "7654dd2b5f045d89",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "38fcf987fabd82f8",
+              "kind": "timeout",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "344ace59e2f482d0",
+              "kind": "instant",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "dafb6b33ef151474",
+              "kind": "instant",
+              "step": "s4"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1"
+        ],
+        "in_flight_at_kill": [
+          "s2"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 0.12405962508637458,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 5,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "7654dd2b5f045d89",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "38fcf987fabd82f8",
+              "kind": "timeout",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "344ace59e2f482d0",
+              "kind": "instant",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "dafb6b33ef151474",
+              "kind": "instant",
+              "step": "s4"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1"
+        ],
+        "in_flight_at_kill": [
+          "s2"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.211593458079733,
+        "redundant_executions": 1,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "timeout",
+        "instant",
+        "instant"
+      ],
+      "steps": 4,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          3,
+          3
+        ],
+        "plain": [
+          4,
+          4
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          2.1724912909558043,
+          2.1718890420161188,
+          2.1719962080242112
+        ],
+        "plain": [
+          2.1657592919655144,
+          2.1720822079805657,
+          2.16816529200878
+        ]
+      },
+      "workflow": "wf07-kill-during-timeout"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "36ac9fe410bfcad7",
+            "kind": "slow",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "bd0d620e8f9f362b",
+            "kind": "timeout",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "a731692d84567709",
+            "kind": "slow",
+            "step": "s3"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 2,
+        "delay": 0.0,
+        "on": "start",
+        "step": "s2"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1"
+        ],
+        "commit_window_reexecutions": 1,
+        "executions_after_kill": 2,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "36ac9fe410bfcad7",
+              "kind": "slow",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "bd0d620e8f9f362b",
+              "kind": "timeout",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "a731692d84567709",
+              "kind": "slow",
+              "step": "s3"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2"
+        ],
+        "in_flight_at_kill": [
+          "s2"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.112839375040494,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 4,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "36ac9fe410bfcad7",
+              "kind": "slow",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "bd0d620e8f9f362b",
+              "kind": "timeout",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "a731692d84567709",
+              "kind": "slow",
+              "step": "s3"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2"
+        ],
+        "in_flight_at_kill": [
+          "s2"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 6.217030333005823,
+        "redundant_executions": 3,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "slow",
+        "timeout",
+        "slow"
+      ],
+      "steps": 3,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          3,
+          3
+        ],
+        "plain": [
+          4,
+          4
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          6.199806624907069,
+          6.2126206659013405,
+          6.221182667068206
+        ],
+        "plain": [
+          6.222898792009801,
+          6.224035167018883,
+          6.218185332952999
+        ]
+      },
+      "workflow": "wf08-kill-after-timeout-retry"
+    },
+    {
+      "expect": "failed",
+      "golden": {
+        "failed_step": "s3",
+        "outputs": {
+          "s1": {
+            "digest": "08726623c999f8d4",
+            "kind": "instant",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "4e08a89023a642a9",
+            "kind": "slow",
+            "step": "s2"
+          }
+        },
+        "status": "failed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 2,
+        "delay": 0.2,
+        "on": "start",
+        "step": "s3"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1",
+          "s2"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 1,
+        "final": {
+          "failed_step": "s3",
+          "outputs": {
+            "s1": {
+              "digest": "08726623c999f8d4",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "4e08a89023a642a9",
+              "kind": "slow",
+              "step": "s2"
+            }
+          },
+          "status": "failed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 0.09092550002969801,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 5,
+        "final": {
+          "failed_step": "s3",
+          "outputs": {
+            "s1": {
+              "digest": "08726623c999f8d4",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "4e08a89023a642a9",
+              "kind": "slow",
+              "step": "s2"
+            }
+          },
+          "status": "failed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 4.307207209058106,
+        "redundant_executions": 2,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "slow",
+        "always_fail"
+      ],
+      "steps": 3,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          4.2739880830049515,
+          4.28260091599077,
+          4.275264709023759
+        ],
+        "plain": [
+          4.194348791032098,
+          4.213891417020932,
+          4.285020958050154
+        ]
+      },
+      "workflow": "wf09-always-fail-last"
+    },
+    {
+      "expect": "failed",
+      "golden": {
+        "failed_step": "s1",
+        "outputs": {},
+        "status": "failed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 0.5,
+        "on": "end",
+        "step": "s1"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 2,
+        "final": {
+          "failed_step": "s1",
+          "outputs": {},
+          "status": "failed"
+        },
+        "finished_before_kill": [],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 1.133806832949631,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 3,
+        "final": {
+          "failed_step": "s1",
+          "outputs": {},
+          "status": "failed"
+        },
+        "finished_before_kill": [],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.201900333049707,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "always_fail",
+        "instant",
+        "instant"
+      ],
+      "steps": 3,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          2.1880669589154422,
+          2.182886041002348,
+          2.1732726669870317
+        ],
+        "plain": [
+          2.18403895793017,
+          2.1763005000539124,
+          2.1912480830214918
+        ]
+      },
+      "workflow": "wf10-always-fail-first"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "26975d87e1025bff",
+            "kind": "instant",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "89c8e82c946e68ad",
+            "kind": "slow",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "51aa80cdc6ba0ea1",
+            "kind": "fail_once",
+            "step": "s3"
+          },
+          "s4": {
+            "digest": "ae2fa66d00b26a79",
+            "kind": "instant",
+            "step": "s4"
+          },
+          "s5": {
+            "digest": "60411b93ec584086",
+            "kind": "timeout",
+            "step": "s5"
+          },
+          "s6": {
+            "digest": "455952423175113e",
+            "kind": "instant",
+            "step": "s6"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 0.0,
+        "on": "start",
+        "step": "s4"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "commit_window_reexecutions": 1,
+        "executions_after_kill": 4,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "26975d87e1025bff",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "89c8e82c946e68ad",
+              "kind": "slow",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "51aa80cdc6ba0ea1",
+              "kind": "fail_once",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "ae2fa66d00b26a79",
+              "kind": "instant",
+              "step": "s4"
+            },
+            "s5": {
+              "digest": "60411b93ec584086",
+              "kind": "timeout",
+              "step": "s5"
+            },
+            "s6": {
+              "digest": "455952423175113e",
+              "kind": "instant",
+              "step": "s6"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3",
+          "s4"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.1485874579520896,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 8,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "26975d87e1025bff",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "89c8e82c946e68ad",
+              "kind": "slow",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "51aa80cdc6ba0ea1",
+              "kind": "fail_once",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "ae2fa66d00b26a79",
+              "kind": "instant",
+              "step": "s4"
+            },
+            "s5": {
+              "digest": "60411b93ec584086",
+              "kind": "timeout",
+              "step": "s5"
+            },
+            "s6": {
+              "digest": "455952423175113e",
+              "kind": "instant",
+              "step": "s6"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3",
+          "s4"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 5.3375935410149395,
+        "redundant_executions": 5,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "slow",
+        "fail_once",
+        "instant",
+        "timeout",
+        "instant"
+      ],
+      "steps": 6,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          4,
+          4
+        ],
+        "plain": [
+          4,
+          4
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          5.357998292078264,
+          5.335059292032383,
+          5.316380333970301
+        ],
+        "plain": [
+          5.340622541960329,
+          5.317485750070773,
+          5.3379236669279635
+        ]
+      },
+      "workflow": "wf11-mixed-6"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "588f46c73e8c7a8f",
+            "kind": "slow",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "cc26ac390d957b61",
+            "kind": "fail_once",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "17f3779ea33d2d54",
+            "kind": "slow",
+            "step": "s3"
+          },
+          "s4": {
+            "digest": "b80fc16416999352",
+            "kind": "instant",
+            "step": "s4"
+          },
+          "s5": {
+            "digest": "f8d17da931609a6b",
+            "kind": "fail_once",
+            "step": "s5"
+          },
+          "s6": {
+            "digest": "667c800af3d04c4d",
+            "kind": "instant",
+            "step": "s6"
+          },
+          "s7": {
+            "digest": "f5b27ddeb8c7e24b",
+            "kind": "slow",
+            "step": "s7"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 0.0,
+        "on": "start",
+        "step": "s5"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1",
+          "s2",
+          "s3",
+          "s4"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 3,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "588f46c73e8c7a8f",
+              "kind": "slow",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "cc26ac390d957b61",
+              "kind": "fail_once",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "17f3779ea33d2d54",
+              "kind": "slow",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "b80fc16416999352",
+              "kind": "instant",
+              "step": "s4"
+            },
+            "s5": {
+              "digest": "f8d17da931609a6b",
+              "kind": "fail_once",
+              "step": "s5"
+            },
+            "s6": {
+              "digest": "667c800af3d04c4d",
+              "kind": "instant",
+              "step": "s6"
+            },
+            "s7": {
+              "digest": "f5b27ddeb8c7e24b",
+              "kind": "slow",
+              "step": "s7"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3",
+          "s4"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.129153333022259,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 9,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "588f46c73e8c7a8f",
+              "kind": "slow",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "cc26ac390d957b61",
+              "kind": "fail_once",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "17f3779ea33d2d54",
+              "kind": "slow",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "b80fc16416999352",
+              "kind": "instant",
+              "step": "s4"
+            },
+            "s5": {
+              "digest": "f8d17da931609a6b",
+              "kind": "fail_once",
+              "step": "s5"
+            },
+            "s6": {
+              "digest": "667c800af3d04c4d",
+              "kind": "instant",
+              "step": "s6"
+            },
+            "s7": {
+              "digest": "f5b27ddeb8c7e24b",
+              "kind": "slow",
+              "step": "s7"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3",
+          "s4"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 8.453148082946427,
+        "redundant_executions": 5,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "slow",
+        "fail_once",
+        "slow",
+        "instant",
+        "fail_once",
+        "instant",
+        "slow"
+      ],
+      "steps": 7,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          8.453737459029071,
+          8.449274124926887,
+          8.436502916971222
+        ],
+        "plain": [
+          8.464745459030382,
+          8.454558875062503,
+          8.453554417006671
+        ]
+      },
+      "workflow": "wf12-mixed-7"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "9b749fb875d0b919",
+            "kind": "instant",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "c56dc77883a63ed2",
+            "kind": "instant",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "19bc16e28155cff2",
+            "kind": "slow",
+            "step": "s3"
+          },
+          "s4": {
+            "digest": "c735e127776260eb",
+            "kind": "timeout",
+            "step": "s4"
+          },
+          "s5": {
+            "digest": "e47cd6bc4b586093",
+            "kind": "instant",
+            "step": "s5"
+          },
+          "s6": {
+            "digest": "530d7a4177c81dec",
+            "kind": "fail_once",
+            "step": "s6"
+          },
+          "s7": {
+            "digest": "287c91bedde32ec1",
+            "kind": "slow",
+            "step": "s7"
+          },
+          "s8": {
+            "digest": "358f9317bc61e37c",
+            "kind": "instant",
+            "step": "s8"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 1.5,
+        "on": "start",
+        "step": "s7"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1",
+          "s2",
+          "s3",
+          "s4",
+          "s5",
+          "s6"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 2,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "9b749fb875d0b919",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "c56dc77883a63ed2",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "19bc16e28155cff2",
+              "kind": "slow",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "c735e127776260eb",
+              "kind": "timeout",
+              "step": "s4"
+            },
+            "s5": {
+              "digest": "e47cd6bc4b586093",
+              "kind": "instant",
+              "step": "s5"
+            },
+            "s6": {
+              "digest": "530d7a4177c81dec",
+              "kind": "fail_once",
+              "step": "s6"
+            },
+            "s7": {
+              "digest": "287c91bedde32ec1",
+              "kind": "slow",
+              "step": "s7"
+            },
+            "s8": {
+              "digest": "358f9317bc61e37c",
+              "kind": "instant",
+              "step": "s8"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3",
+          "s4",
+          "s5",
+          "s6"
+        ],
+        "in_flight_at_kill": [
+          "s4",
+          "s7"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.141845916979946,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 10,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "9b749fb875d0b919",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "c56dc77883a63ed2",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "19bc16e28155cff2",
+              "kind": "slow",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "c735e127776260eb",
+              "kind": "timeout",
+              "step": "s4"
+            },
+            "s5": {
+              "digest": "e47cd6bc4b586093",
+              "kind": "instant",
+              "step": "s5"
+            },
+            "s6": {
+              "digest": "530d7a4177c81dec",
+              "kind": "fail_once",
+              "step": "s6"
+            },
+            "s7": {
+              "digest": "287c91bedde32ec1",
+              "kind": "slow",
+              "step": "s7"
+            },
+            "s8": {
+              "digest": "358f9317bc61e37c",
+              "kind": "instant",
+              "step": "s8"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3",
+          "s4",
+          "s5",
+          "s6"
+        ],
+        "in_flight_at_kill": [
+          "s4",
+          "s7"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 7.433005125029013,
+        "redundant_executions": 8,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "instant",
+        "slow",
+        "timeout",
+        "instant",
+        "fail_once",
+        "slow",
+        "instant"
+      ],
+      "steps": 8,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          3,
+          3
+        ],
+        "plain": [
+          4,
+          4
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          7.400038041989319,
+          7.392560958047397,
+          7.394558042054996
+        ],
+        "plain": [
+          7.413298291969113,
+          7.447784999967553,
+          7.389173249946907
+        ]
+      },
+      "workflow": "wf13-mixed-8"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "a": {
+            "digest": "60517cca805e20f7",
+            "kind": "instant",
+            "step": "a"
+          },
+          "b": {
+            "digest": "a4cbb5088f7e5653",
+            "kind": "instant",
+            "step": "b"
+          },
+          "c": {
+            "digest": "9a0334e79a2c9d08",
+            "kind": "slow",
+            "step": "c"
+          },
+          "d": {
+            "digest": "d74629a7637b4ea1",
+            "kind": "instant",
+            "step": "d"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 0.5,
+        "on": "start",
+        "step": "c"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "a",
+          "b"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 2,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "a": {
+              "digest": "60517cca805e20f7",
+              "kind": "instant",
+              "step": "a"
+            },
+            "b": {
+              "digest": "a4cbb5088f7e5653",
+              "kind": "instant",
+              "step": "b"
+            },
+            "c": {
+              "digest": "9a0334e79a2c9d08",
+              "kind": "slow",
+              "step": "c"
+            },
+            "d": {
+              "digest": "d74629a7637b4ea1",
+              "kind": "instant",
+              "step": "d"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "a",
+          "b"
+        ],
+        "in_flight_at_kill": [
+          "c"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.140030541922897,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 4,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "a": {
+              "digest": "60517cca805e20f7",
+              "kind": "instant",
+              "step": "a"
+            },
+            "b": {
+              "digest": "a4cbb5088f7e5653",
+              "kind": "instant",
+              "step": "b"
+            },
+            "c": {
+              "digest": "9a0334e79a2c9d08",
+              "kind": "slow",
+              "step": "c"
+            },
+            "d": {
+              "digest": "d74629a7637b4ea1",
+              "kind": "instant",
+              "step": "d"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "a",
+          "b"
+        ],
+        "in_flight_at_kill": [
+          "c"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.183590666973032,
+        "redundant_executions": 2,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "instant",
+        "slow",
+        "instant"
+      ],
+      "steps": 4,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          2.1671332080150023,
+          2.177561958087608,
+          2.169541166978888
+        ],
+        "plain": [
+          2.1657468340126798,
+          2.1714654579991475,
+          2.1764753749594092
+        ]
+      },
+      "workflow": "wf14-fan-in"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "200eedf25969c3ad",
+            "kind": "instant",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "6e1f2c583bf58d31",
+            "kind": "instant",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "862111c8587ddaf1",
+            "kind": "slow",
+            "step": "s3"
+          },
+          "s4": {
+            "digest": "68ed12c6b46992f8",
+            "kind": "slow",
+            "step": "s4"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 1.9,
+        "on": "start",
+        "step": "s4"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 1,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "200eedf25969c3ad",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "6e1f2c583bf58d31",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "862111c8587ddaf1",
+              "kind": "slow",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "68ed12c6b46992f8",
+              "kind": "slow",
+              "step": "s4"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "in_flight_at_kill": [
+          "s4"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.100166500080377,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 4,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "200eedf25969c3ad",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "6e1f2c583bf58d31",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "862111c8587ddaf1",
+              "kind": "slow",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "68ed12c6b46992f8",
+              "kind": "slow",
+              "step": "s4"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "in_flight_at_kill": [
+          "s4"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 4.209655584068969,
+        "redundant_executions": 3,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "instant",
+        "slow",
+        "slow"
+      ],
+      "steps": 4,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          4.194242957979441,
+          4.2034869159106165,
+          4.20052391604986
+        ],
+        "plain": [
+          4.20628020807635,
+          4.205032250029035,
+          4.202613665955141
+        ]
+      },
+      "workflow": "wf15-kill-near-end"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "d5469aa7a2265f1f",
+            "kind": "slow",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "b93e2572b44f8bf3",
+            "kind": "instant",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "9bcad112a7e3687f",
+            "kind": "instant",
+            "step": "s3"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 0.5,
+        "on": "start",
+        "step": "s1"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 3,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "d5469aa7a2265f1f",
+              "kind": "slow",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "b93e2572b44f8bf3",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "9bcad112a7e3687f",
+              "kind": "instant",
+              "step": "s3"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [],
+        "in_flight_at_kill": [
+          "s1"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.174227916984819,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 3,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "d5469aa7a2265f1f",
+              "kind": "slow",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "b93e2572b44f8bf3",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "9bcad112a7e3687f",
+              "kind": "instant",
+              "step": "s3"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [],
+        "in_flight_at_kill": [
+          "s1"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 2.170525416964665,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "slow",
+        "instant",
+        "instant"
+      ],
+      "steps": 3,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          2.1604210420046,
+          2.1479989170329645,
+          2.1362051659962162
+        ],
+        "plain": [
+          2.1412301249802113,
+          2.144464208977297,
+          2.1447565829148516
+        ]
+      },
+      "workflow": "wf16-kill-first-step"
+    },
+    {
+      "expect": "failed",
+      "golden": {
+        "failed_step": "s3",
+        "outputs": {
+          "s1": {
+            "digest": "e048043af60d0214",
+            "kind": "instant",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "239687e6b5b6f8e7",
+            "kind": "fail_once",
+            "step": "s2"
+          }
+        },
+        "status": "failed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 0.0,
+        "on": "start",
+        "step": "s3"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1",
+          "s2"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 2,
+        "final": {
+          "failed_step": "s3",
+          "outputs": {
+            "s1": {
+              "digest": "e048043af60d0214",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "239687e6b5b6f8e7",
+              "kind": "fail_once",
+              "step": "s2"
+            }
+          },
+          "status": "failed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 1.1099989579524845,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 6,
+        "final": {
+          "failed_step": "s3",
+          "outputs": {
+            "s1": {
+              "digest": "e048043af60d0214",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "239687e6b5b6f8e7",
+              "kind": "fail_once",
+              "step": "s2"
+            }
+          },
+          "status": "failed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 3.2533043330768123,
+        "redundant_executions": 3,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "fail_once",
+        "always_fail",
+        "instant",
+        "instant"
+      ],
+      "steps": 5,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          3.2872037920169532,
+          3.3318116249283776,
+          3.2983537500258535
+        ],
+        "plain": [
+          3.2928099590353668,
+          3.285023625008762,
+          3.775241333991289
+        ]
+      },
+      "workflow": "wf17-always-fail-middle"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "bed7d42802bbfc4b",
+            "kind": "timeout",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "2cdcb0289c57c021",
+            "kind": "timeout",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "43b6d51fc2abb615",
+            "kind": "instant",
+            "step": "s3"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 2,
+        "delay": 0.5,
+        "on": "start",
+        "step": "s2"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 2,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "bed7d42802bbfc4b",
+              "kind": "timeout",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "2cdcb0289c57c021",
+              "kind": "timeout",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "43b6d51fc2abb615",
+              "kind": "instant",
+              "step": "s3"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1"
+        ],
+        "in_flight_at_kill": [
+          "s1",
+          "s2"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 0.10307849990203977,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 6,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "bed7d42802bbfc4b",
+              "kind": "timeout",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "2cdcb0289c57c021",
+              "kind": "timeout",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "43b6d51fc2abb615",
+              "kind": "instant",
+              "step": "s3"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1"
+        ],
+        "in_flight_at_kill": [
+          "s1",
+          "s2"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 6.232094582985155,
+        "redundant_executions": 2,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "timeout",
+        "timeout",
+        "instant"
+      ],
+      "steps": 3,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          9,
+          9
+        ],
+        "plain": [
+          12,
+          12
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          6.217799125006422,
+          6.204140999936499,
+          6.204734708066098
+        ],
+        "plain": [
+          6.200832042028196,
+          6.21356229193043,
+          6.208020417019725
+        ]
+      },
+      "workflow": "wf18-double-timeout"
+    },
+    {
+      "expect": "failed",
+      "golden": {
+        "failed_step": "s2",
+        "outputs": {
+          "s1": {
+            "digest": "51c439489d11ac92",
+            "kind": "instant",
+            "step": "s1"
+          }
+        },
+        "status": "failed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 2,
+        "delay": 0.5,
+        "on": "start",
+        "step": "s2"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1"
+        ],
+        "commit_window_reexecutions": 0,
+        "executions_after_kill": 1,
+        "final": {
+          "failed_step": "s2",
+          "outputs": {
+            "s1": {
+              "digest": "51c439489d11ac92",
+              "kind": "instant",
+              "step": "s1"
+            }
+          },
+          "status": "failed"
+        },
+        "finished_before_kill": [
+          "s1"
+        ],
+        "in_flight_at_kill": [
+          "s2"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 1.076643457985483,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 4,
+        "final": {
+          "failed_step": "s2",
+          "outputs": {
+            "s1": {
+              "digest": "51c439489d11ac92",
+              "kind": "instant",
+              "step": "s1"
+            }
+          },
+          "status": "failed"
+        },
+        "finished_before_kill": [
+          "s1"
+        ],
+        "in_flight_at_kill": [
+          "s2"
+        ],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 5.137465250096284,
+        "redundant_executions": 1,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "timeout",
+        "instant"
+      ],
+      "steps": 3,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          10,
+          10
+        ],
+        "plain": [
+          12,
+          12
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          5.105009083985351,
+          5.131444375030696,
+          5.129564208909869
+        ],
+        "plain": [
+          5.116574374958873,
+          5.125192584004253,
+          5.137625333038159
+        ]
+      },
+      "workflow": "wf19-timeout-exhausts"
+    },
+    {
+      "expect": "completed",
+      "golden": {
+        "failed_step": null,
+        "outputs": {
+          "s1": {
+            "digest": "c87cf838fb97862d",
+            "kind": "instant",
+            "step": "s1"
+          },
+          "s2": {
+            "digest": "2d7aad67cae357de",
+            "kind": "instant",
+            "step": "s2"
+          },
+          "s3": {
+            "digest": "7ec8fcb4c20bbed0",
+            "kind": "instant",
+            "step": "s3"
+          },
+          "s4": {
+            "digest": "23ba5802ac443136",
+            "kind": "instant",
+            "step": "s4"
+          },
+          "s5": {
+            "digest": "aa95f5072d45f00f",
+            "kind": "instant",
+            "step": "s5"
+          },
+          "s6": {
+            "digest": "2bc8b3c2e1b04e8f",
+            "kind": "instant",
+            "step": "s6"
+          }
+        },
+        "status": "completed"
+      },
+      "golden_status_as_expected": true,
+      "kill": {
+        "attempt": 1,
+        "delay": 0.0,
+        "on": "end",
+        "step": "s3"
+      },
+      "kill_ckpt": {
+        "checkpointed_at_kill": [
+          "s1",
+          "s2"
+        ],
+        "commit_window_reexecutions": 1,
+        "executions_after_kill": 4,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "c87cf838fb97862d",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "2d7aad67cae357de",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "7ec8fcb4c20bbed0",
+              "kind": "instant",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "23ba5802ac443136",
+              "kind": "instant",
+              "step": "s4"
+            },
+            "s5": {
+              "digest": "aa95f5072d45f00f",
+              "kind": "instant",
+              "step": "s5"
+            },
+            "s6": {
+              "digest": "2bc8b3c2e1b04e8f",
+              "kind": "instant",
+              "step": "s6"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 0.11936637503094971,
+        "redundant_executions": 0,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "kill_plain": {
+        "checkpointed_at_kill": [],
+        "commit_window_reexecutions": null,
+        "executions_after_kill": 6,
+        "final": {
+          "failed_step": null,
+          "outputs": {
+            "s1": {
+              "digest": "c87cf838fb97862d",
+              "kind": "instant",
+              "step": "s1"
+            },
+            "s2": {
+              "digest": "2d7aad67cae357de",
+              "kind": "instant",
+              "step": "s2"
+            },
+            "s3": {
+              "digest": "7ec8fcb4c20bbed0",
+              "kind": "instant",
+              "step": "s3"
+            },
+            "s4": {
+              "digest": "23ba5802ac443136",
+              "kind": "instant",
+              "step": "s4"
+            },
+            "s5": {
+              "digest": "aa95f5072d45f00f",
+              "kind": "instant",
+              "step": "s5"
+            },
+            "s6": {
+              "digest": "2bc8b3c2e1b04e8f",
+              "kind": "instant",
+              "step": "s6"
+            }
+          },
+          "status": "completed"
+        },
+        "finished_before_kill": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "in_flight_at_kill": [],
+        "kill_delivered": true,
+        "output_match": true,
+        "recovery_wall": 0.16612904204521328,
+        "redundant_executions": 3,
+        "status_match": true,
+        "terminal": true,
+        "worker_returncode": -9
+      },
+      "step_kinds": [
+        "instant",
+        "instant",
+        "instant",
+        "instant",
+        "instant",
+        "instant"
+      ],
+      "steps": 6,
+      "timeout_problems": [],
+      "timeouts": {
+        "ckpt": [
+          0,
+          0
+        ],
+        "plain": [
+          0,
+          0
+        ]
+      },
+      "uninterrupted_reproducible": true,
+      "wall": {
+        "ckpt": [
+          0.18759929202497005,
+          0.16661191696766764,
+          0.16641470801550895
+        ],
+        "plain": [
+          0.16582854208536446,
+          0.16671412496361881,
+          0.16528900002595037
+        ]
+      },
+      "workflow": "wf20-commit-window"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+15:37:53 [wf17-always-fail-middle-kill-ckpt] step 1/5 s1: completed earlier, reusing checkpointed output
+15:37:53 [wf17-always-fail-middle-kill-ckpt] step 2/5 s2: completed earlier, reusing checkpointed output
+15:37:53 [wf17-always-fail-middle-kill-ckpt] step 3/5 s3: attempt 1 was interrupted by a crash (counts as an attempt)
+15:37:53 [wf17-always-fail-middle-kill-ckpt] step 3/5 s3: attempt 2/3 started
+15:37:53 [wf17-always-fail-middle-kill-ckpt] step 3/5 s3: attempt 2: error: exit code 1: StepError: always_fail: failing attempt 2 on purpose; retrying in 1s
+15:37:54 [wf17-always-fail-middle-kill-ckpt] step 3/5 s3: attempt 3/3 started
+15:37:54 [wf17-always-fail-middle-kill-ckpt] step 3/5 s3: FAILED, step 's3' used all 3 attempts; last: attempt 3: error: exit code 1: StepError: always_fail: failing attempt 3 on purpose

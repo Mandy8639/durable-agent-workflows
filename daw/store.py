@@ -52,7 +52,9 @@ def dumps(value: Any) -> str:
 
 
 class Store:
-    def __init__(self, path: str):
+    def __init__(self, path: str, fullfsync: bool = False):
+        """`fullfsync` asks macOS for F_FULLFSYNC (flush the drive cache), which plain fsync
+        does not do there. Process crashes are covered either way; power loss is not without it."""
         self.path = path
         self.durable = path != ":memory:"
         self.conn = sqlite3.connect(path, isolation_level=None, timeout=30.0)
@@ -62,6 +64,8 @@ class Store:
             if mode.lower() != "wal":
                 raise RuntimeError(f"could not enable WAL mode on {path} (got {mode})")
         self.conn.execute("PRAGMA synchronous=FULL")
+        if fullfsync:
+            self.conn.execute("PRAGMA fullfsync=ON")
         self.conn.execute("PRAGMA foreign_keys=ON")
         self.conn.executescript(SCHEMA)
 

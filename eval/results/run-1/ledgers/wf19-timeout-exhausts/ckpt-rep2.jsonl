@@ -1,0 +1,5 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 54536, "run_id": "wf19-timeout-exhausts-ckpt-rep2", "step": "s1", "t": 1794602348.0144708, "will_timeout": false, "worker_pid": 54535}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 54536, "run_id": "wf19-timeout-exhausts-ckpt-rep2", "step": "s1", "t": 1794602348.014611, "worker_pid": 54535}
+{"attempt": 1, "event": "start", "index": 1, "kind": "timeout", "pid": 54537, "run_id": "wf19-timeout-exhausts-ckpt-rep2", "step": "s2", "t": 1794602348.036763, "will_timeout": true, "worker_pid": 54535}
+{"attempt": 2, "event": "start", "index": 1, "kind": "timeout", "pid": 54538, "run_id": "wf19-timeout-exhausts-ckpt-rep2", "step": "s2", "t": 1794602350.076412, "will_timeout": true, "worker_pid": 54535}
+{"attempt": 3, "event": "start", "index": 1, "kind": "timeout", "pid": 54539, "run_id": "wf19-timeout-exhausts-ckpt-rep2", "step": "s2", "t": 1794602352.097825, "will_timeout": true, "worker_pid": 54535}

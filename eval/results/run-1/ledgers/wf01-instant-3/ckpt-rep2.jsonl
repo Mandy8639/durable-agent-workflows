@@ -1,0 +1,6 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 53377, "run_id": "wf01-instant-3-ckpt-rep2", "step": "a", "t": 1794601745.8061178, "will_timeout": false, "worker_pid": 53376}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 53377, "run_id": "wf01-instant-3-ckpt-rep2", "step": "a", "t": 1794601745.806804, "worker_pid": 53376}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 53378, "run_id": "wf01-instant-3-ckpt-rep2", "step": "b", "t": 1794601745.829588, "will_timeout": false, "worker_pid": 53376}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 53378, "run_id": "wf01-instant-3-ckpt-rep2", "step": "b", "t": 1794601745.8296661, "worker_pid": 53376}
+{"attempt": 1, "event": "start", "index": 2, "kind": "instant", "pid": 53379, "run_id": "wf01-instant-3-ckpt-rep2", "step": "c", "t": 1794601745.852095, "will_timeout": false, "worker_pid": 53376}
+{"attempt": 1, "event": "end", "index": 2, "kind": "instant", "ok": true, "pid": 53379, "run_id": "wf01-instant-3-ckpt-rep2", "step": "c", "t": 1794601745.8521888, "worker_pid": 53376}

@@ -1,0 +1,12 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 54600, "run_id": "wf20-commit-window-plain-rep2", "step": "s1", "t": 1794602370.624574, "will_timeout": false, "worker_pid": 54599}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 54600, "run_id": "wf20-commit-window-plain-rep2", "step": "s1", "t": 1794602370.624714, "worker_pid": 54599}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 54601, "run_id": "wf20-commit-window-plain-rep2", "step": "s2", "t": 1794602370.6473, "will_timeout": false, "worker_pid": 54599}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 54601, "run_id": "wf20-commit-window-plain-rep2", "step": "s2", "t": 1794602370.647396, "worker_pid": 54599}
+{"attempt": 1, "event": "start", "index": 2, "kind": "instant", "pid": 54602, "run_id": "wf20-commit-window-plain-rep2", "step": "s3", "t": 1794602370.66918, "will_timeout": false, "worker_pid": 54599}
+{"attempt": 1, "event": "end", "index": 2, "kind": "instant", "ok": true, "pid": 54602, "run_id": "wf20-commit-window-plain-rep2", "step": "s3", "t": 1794602370.669271, "worker_pid": 54599}
+{"attempt": 1, "event": "start", "index": 3, "kind": "instant", "pid": 54603, "run_id": "wf20-commit-window-plain-rep2", "step": "s4", "t": 1794602370.6917949, "will_timeout": false, "worker_pid": 54599}
+{"attempt": 1, "event": "end", "index": 3, "kind": "instant", "ok": true, "pid": 54603, "run_id": "wf20-commit-window-plain-rep2", "step": "s4", "t": 1794602370.6918871, "worker_pid": 54599}
+{"attempt": 1, "event": "start", "index": 4, "kind": "instant", "pid": 54604, "run_id": "wf20-commit-window-plain-rep2", "step": "s5", "t": 1794602370.7140322, "will_timeout": false, "worker_pid": 54599}
+{"attempt": 1, "event": "end", "index": 4, "kind": "instant", "ok": true, "pid": 54604, "run_id": "wf20-commit-window-plain-rep2", "step": "s5", "t": 1794602370.714134, "worker_pid": 54599}
+{"attempt": 1, "event": "start", "index": 5, "kind": "instant", "pid": 54605, "run_id": "wf20-commit-window-plain-rep2", "step": "s6", "t": 1794602370.7358458, "will_timeout": false, "worker_pid": 54599}
+{"attempt": 1, "event": "end", "index": 5, "kind": "instant", "ok": true, "pid": 54605, "run_id": "wf20-commit-window-plain-rep2", "step": "s6", "t": 1794602370.735937, "worker_pid": 54599}

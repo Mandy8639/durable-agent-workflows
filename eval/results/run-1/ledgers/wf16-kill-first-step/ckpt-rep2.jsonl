@@ -1,0 +1,6 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "slow", "pid": 54359, "run_id": "wf16-kill-first-step-ckpt-rep2", "step": "s1", "t": 1794602237.889183, "will_timeout": false, "worker_pid": 54358}
+{"attempt": 1, "event": "end", "index": 0, "kind": "slow", "ok": true, "pid": 54359, "run_id": "wf16-kill-first-step-ckpt-rep2", "step": "s1", "t": 1794602239.8946009, "worker_pid": 54358}
+{"attempt": 1, "event": "start", "index": 1, "kind": "instant", "pid": 54360, "run_id": "wf16-kill-first-step-ckpt-rep2", "step": "s2", "t": 1794602239.9414139, "will_timeout": false, "worker_pid": 54358}
+{"attempt": 1, "event": "end", "index": 1, "kind": "instant", "ok": true, "pid": 54360, "run_id": "wf16-kill-first-step-ckpt-rep2", "step": "s2", "t": 1794602239.941599, "worker_pid": 54358}
+{"attempt": 1, "event": "start", "index": 2, "kind": "instant", "pid": 54361, "run_id": "wf16-kill-first-step-ckpt-rep2", "step": "s3", "t": 1794602239.969279, "will_timeout": false, "worker_pid": 54358}
+{"attempt": 1, "event": "end", "index": 2, "kind": "instant", "ok": true, "pid": 54361, "run_id": "wf16-kill-first-step-ckpt-rep2", "step": "s3", "t": 1794602239.969386, "worker_pid": 54358}

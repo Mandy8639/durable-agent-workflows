@@ -1,0 +1,10 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "instant", "pid": 53655, "run_id": "wf06-kill-in-backoff-ckpt-rep0", "step": "s1", "t": 1794601851.415273, "will_timeout": false, "worker_pid": 53654}
+{"attempt": 1, "event": "end", "index": 0, "kind": "instant", "ok": true, "pid": 53655, "run_id": "wf06-kill-in-backoff-ckpt-rep0", "step": "s1", "t": 1794601851.415414, "worker_pid": 53654}
+{"attempt": 1, "event": "start", "index": 1, "kind": "fail_once", "pid": 53656, "run_id": "wf06-kill-in-backoff-ckpt-rep0", "step": "s2", "t": 1794601851.437739, "will_timeout": false, "worker_pid": 53654}
+{"attempt": 1, "event": "end", "index": 1, "kind": "fail_once", "ok": false, "pid": 53656, "run_id": "wf06-kill-in-backoff-ckpt-rep0", "step": "s2", "t": 1794601851.437841, "worker_pid": 53654}
+{"attempt": 2, "event": "start", "index": 1, "kind": "fail_once", "pid": 53657, "run_id": "wf06-kill-in-backoff-ckpt-rep0", "step": "s2", "t": 1794601852.502825, "will_timeout": false, "worker_pid": 53654}
+{"attempt": 2, "event": "end", "index": 1, "kind": "fail_once", "ok": true, "pid": 53657, "run_id": "wf06-kill-in-backoff-ckpt-rep0", "step": "s2", "t": 1794601852.502988, "worker_pid": 53654}
+{"attempt": 1, "event": "start", "index": 2, "kind": "instant", "pid": 53658, "run_id": "wf06-kill-in-backoff-ckpt-rep0", "step": "s3", "t": 1794601852.5307431, "will_timeout": false, "worker_pid": 53654}
+{"attempt": 1, "event": "end", "index": 2, "kind": "instant", "ok": true, "pid": 53658, "run_id": "wf06-kill-in-backoff-ckpt-rep0", "step": "s3", "t": 1794601852.530841, "worker_pid": 53654}
+{"attempt": 1, "event": "start", "index": 3, "kind": "instant", "pid": 53659, "run_id": "wf06-kill-in-backoff-ckpt-rep0", "step": "s4", "t": 1794601852.5549288, "will_timeout": false, "worker_pid": 53654}
+{"attempt": 1, "event": "end", "index": 3, "kind": "instant", "ok": true, "pid": 53659, "run_id": "wf06-kill-in-backoff-ckpt-rep0", "step": "s4", "t": 1794601852.55503, "worker_pid": 53654}

@@ -1,0 +1,17 @@
+15:33:10 [wf11-mixed-6-plain-rep0] step 1/6 s1: attempt 1/3 started
+15:33:10 [wf11-mixed-6-plain-rep0] step 1/6 s1: attempt 1 ok in 0.03s, checkpointed
+15:33:10 [wf11-mixed-6-plain-rep0] step 2/6 s2: attempt 1/3 started
+15:33:12 [wf11-mixed-6-plain-rep0] step 2/6 s2: attempt 1 ok in 2.04s, checkpointed
+15:33:12 [wf11-mixed-6-plain-rep0] step 3/6 s3: attempt 1/3 started
+15:33:12 [wf11-mixed-6-plain-rep0] step 3/6 s3: attempt 1: error: exit code 1: StepError: fail_once: failing attempt 1 on purpose; retrying in 1s
+15:33:13 [wf11-mixed-6-plain-rep0] step 3/6 s3: attempt 2/3 started
+15:33:14 [wf11-mixed-6-plain-rep0] step 3/6 s3: attempt 2 ok in 0.05s, checkpointed
+15:33:14 [wf11-mixed-6-plain-rep0] step 4/6 s4: attempt 1/3 started
+15:33:14 [wf11-mixed-6-plain-rep0] step 4/6 s4: attempt 1 ok in 0.03s, checkpointed
+15:33:14 [wf11-mixed-6-plain-rep0] step 5/6 s5: attempt 1/3 started
+15:33:15 [wf11-mixed-6-plain-rep0] step 5/6 s5: attempt 1: timeout: timeout after 1.01s; process killed; retrying in 1s
+15:33:16 [wf11-mixed-6-plain-rep0] step 5/6 s5: attempt 2/3 started
+15:33:16 [wf11-mixed-6-plain-rep0] step 5/6 s5: attempt 2 ok in 0.05s, checkpointed
+15:33:16 [wf11-mixed-6-plain-rep0] step 6/6 s6: attempt 1/3 started
+15:33:16 [wf11-mixed-6-plain-rep0] step 6/6 s6: attempt 1 ok in 0.03s, checkpointed
+15:33:16 [wf11-mixed-6-plain-rep0] run completed

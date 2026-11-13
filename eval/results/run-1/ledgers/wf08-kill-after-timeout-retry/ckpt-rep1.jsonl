@@ -1,0 +1,7 @@
+{"attempt": 1, "event": "start", "index": 0, "kind": "slow", "pid": 53773, "run_id": "wf08-kill-after-timeout-retry-ckpt-rep1", "step": "s1", "t": 1794601889.653627, "will_timeout": false, "worker_pid": 53772}
+{"attempt": 1, "event": "end", "index": 0, "kind": "slow", "ok": true, "pid": 53773, "run_id": "wf08-kill-after-timeout-retry-ckpt-rep1", "step": "s1", "t": 1794601891.664201, "worker_pid": 53772}
+{"attempt": 1, "event": "start", "index": 1, "kind": "timeout", "pid": 53774, "run_id": "wf08-kill-after-timeout-retry-ckpt-rep1", "step": "s2", "t": 1794601891.710795, "will_timeout": true, "worker_pid": 53772}
+{"attempt": 2, "event": "start", "index": 1, "kind": "timeout", "pid": 53775, "run_id": "wf08-kill-after-timeout-retry-ckpt-rep1", "step": "s2", "t": 1794601893.736945, "will_timeout": false, "worker_pid": 53772}
+{"attempt": 2, "event": "end", "index": 1, "kind": "timeout", "ok": true, "pid": 53775, "run_id": "wf08-kill-after-timeout-retry-ckpt-rep1", "step": "s2", "t": 1794601893.737088, "worker_pid": 53772}
+{"attempt": 1, "event": "start", "index": 2, "kind": "slow", "pid": 53776, "run_id": "wf08-kill-after-timeout-retry-ckpt-rep1", "step": "s3", "t": 1794601893.7654321, "will_timeout": false, "worker_pid": 53772}
+{"attempt": 1, "event": "end", "index": 2, "kind": "slow", "ok": true, "pid": 53776, "run_id": "wf08-kill-after-timeout-retry-ckpt-rep1", "step": "s3", "t": 1794601895.776136, "worker_pid": 53772}
