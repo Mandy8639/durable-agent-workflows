@@ -159,7 +159,7 @@ def draft(inputs, params, ctx):
 
 def critique(inputs, params, ctx):
     user = f"DRAFT:\n{inputs['draft']['text']}\n\nSOURCE:\n{inputs['extract']['text']}"
-    return llm.complete("critique", CRITIQUE_SYSTEM, user, max_tokens=600)
+    return llm.complete("critique", CRITIQUE_SYSTEM, user)
 
 
 def write(inputs, params, ctx):

@@ -119,6 +119,29 @@ class ResumeTests(EngineCase):
         self.assertIn("interrupted", res.error)
         self.assertEqual(self.executions(), {})
 
+    def test_failed_run_stays_failed_unless_retry_failed(self):
+        wf = chain("t/reopen", fake("a"), fake("b", "always_fail", max_attempts=2), fake("c"))
+        res = self.engine.run(wf)
+        self.assertEqual(self.engine.execute(res.run_id).status, "failed")
+        self.assertEqual(self.executions(), {"a": 1, "b": 2})
+        again = self.engine.execute(res.run_id, retry_failed=True)
+        self.assertEqual(again.status, "failed")
+        self.assertEqual(self.executions(), {"a": 1, "b": 4})
+        self.assertEqual(self.store.get_steps(res.run_id)[1]["attempts"], 2)
+
+    def test_retry_failed_reuses_completed_steps(self):
+        wf = chain("t/reopen-ok", fake("a"), fake("b"), fake("c"))
+        run_id = self.engine.start(wf)
+        self.store.start_attempt(run_id, 0, "a", {}, 1)
+        self.store.complete_step(run_id, 0, {"stored": "a"})
+        self.store.start_attempt(run_id, 1, "b", {}, 3)
+        self.store.fail_attempt(run_id, 1, "boom", final=True)
+        res = self.engine.execute(run_id, retry_failed=True)
+        self.assertEqual(res.status, "completed")
+        self.assertIsNone(res.error)
+        self.assertEqual(res.outputs["a"], {"stored": "a"})
+        self.assertEqual(self.executions(), {"b": 1, "c": 1})
+
     def test_resume_refuses_while_owner_is_alive(self):
         wf = chain("t/locked", fake("a"))
         run_id = self.engine.start(wf)

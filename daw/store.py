@@ -128,6 +128,25 @@ class Store:
                 )
         return self.get_run(run_id)  # type: ignore[return-value]
 
+    def reopen_failed(self, run_id: str) -> bool:
+        """Give a failed run's failed step a fresh attempt budget; completed steps are kept."""
+        now = time.time()
+        with self.tx() as c:
+            row = c.execute("SELECT status FROM runs WHERE id = ?", (run_id,)).fetchone()
+            if row is None or row["status"] != "failed":
+                return False
+            c.execute(
+                "UPDATE steps SET status = 'retrying', attempts = 0, finished_at = NULL,"
+                " updated_at = ? WHERE run_id = ? AND status = 'failed'",
+                (now, run_id),
+            )
+            c.execute(
+                "UPDATE runs SET status = 'pending', error = NULL, owner_pid = NULL, updated_at = ?,"
+                " finished_at = NULL WHERE id = ?",
+                (now, run_id),
+            )
+        return True
+
     def complete_run(self, run_id: str, result: Any) -> None:
         now = time.time()
         with self.tx() as c:

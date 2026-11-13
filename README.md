@@ -125,6 +125,9 @@ commits the engine makes per step
   already killed. The same logic slightly undercounted the timeout checks
   (40/32 instead of 45/37). That was fixed in the harness, not in the
   workflows, and the whole suite was rerun as run-2.
+- After run-2, the engine gained the opt-in `resume --retry-failed` (for the
+  live demo, see below). The default run and resume path that the eval
+  exercises did not change.
 
 ## Architecture
 
@@ -166,6 +169,8 @@ The semantics the engine enforces:
   immediately.
 - **Failure is a state, not a crash.** When a step exhausts its attempts, the
   step and the run are marked `failed` together, with the last error recorded.
+  `resume --retry-failed` is the explicit way to reopen such a run; it still
+  never re-runs completed steps.
 - **One worker per run.** A run records its owner PID, and `resume` refuses to
   take over a run whose owner is still alive unless you pass `--force`. The
   PID check only works on a single machine.
@@ -203,11 +208,12 @@ python3 -m daw workflows                          # what can be run by name
 python3 -m daw run eval/wf04-slow-chain-5         # prints a run id; Ctrl-C or kill -9 it mid-way...
 python3 -m daw list                               # ...it shows as `running`, k/5 steps checkpointed
 python3 -m daw resume <run-id>                    # reuses those k outputs, continues at step k+1
+python3 -m daw resume <run-id> --retry-failed     # reopen a FAILED run: fresh attempts for the failed step only
 python3 -m daw show <run-id>                      # per-step status, attempts, timings, outputs, errors
 
 python3 -m daw eval                               # the frozen kill-test suite (~11 min), prints the table
 python3 -m daw.bench                              # checkpoint cost micro-benchmark
-python3 -m unittest discover -s tests -t .        # 30 tests, ~11 s, no model calls
+python3 -m unittest discover -s tests -t .        # 32 tests, ~11 s, no model calls
 ```
 
 State lives in `.daw/daw.db` (or wherever `--db` / `DAW_DB` points). Running
@@ -228,18 +234,45 @@ DAW_LLM=fake python3 -m daw run demo/research-brief \
   --input '{"topic": "Write-ahead logging in SQLite", "url": "fixture:sqlite-wal.html", "out": "out/brief.md"}'
 
 # Live: fetches https://sqlite.org/wal.html, calls a free OpenRouter model
-export OPENROUTER_API_KEY=...            # DAW_MODEL overrides the default google/gemma-4-31b-it:free
+export OPENROUTER_API_KEY=...            # DAW_MODEL overrides the default nvidia/nemotron-3.5-lightning:free
 python3 -m daw run demo/research-brief
 ```
 
 The demo refuses any model that is not a `:free` OpenRouter model. The demo is
 not part of the kill-test numbers.
 
+**What happened on the live run (2026-11-13).** The output is
+[`demo/sample-brief.md`](demo/sample-brief.md). Getting there took three runs,
+and all three failures are recorded in the database:
+
+1. `google/gemma-4-31b-it:free` was rate-limited upstream (HTTP 429) on all 3
+   attempts of `draft`. The engine failed the run cleanly.
+2. With `nvidia/nemotron-3.5-lightning:free`, `draft` succeeded: 24.7 s, 1,702
+   prompt tokens and 2,881 completion tokens, of which 2,388 were reasoning.
+   Then `critique` returned empty content on all 3 attempts
+   (`finish_reason=length`), because the model spent its whole output budget on
+   reasoning. The run failed with `fetch`, `extract` and `draft` checkpointed.
+3. After raising the output budget to 8,000 tokens, `daw resume <run-id>
+   --retry-failed` reopened that same run. It reused the three checkpointed
+   steps, so the draft was not regenerated, and gave `critique` a fresh attempt
+   budget. Two attempts hit the length limit again, and the third succeeded:
+   2,170 prompt tokens and 7,905 completion tokens, of which 7,595 were
+   reasoning. That took 400 s in total across the three attempts. `write` then
+   saved the brief.
+
+The critique is useful. It flags two claims in the draft as unsupported or
+contradicted by the source, and it names two omissions. It also shows the
+reason for the demo: a "free" model's output is slow, capped and
+nondeterministic, and the checkpoint is what kept the 25-second draft from
+being thrown away when a later step failed.
+
+`--retry-failed` is opt-in. Without it, a failed run stays failed.
+
 ## Cost
 
-$0. The eval and the tests make no model calls. So far the demo has only been
-run with the fake model, which also costs nothing; the live run is limited to
-free models.
+$0.00. The eval and the tests make no model calls. On the live demo run,
+OpenRouter reported `cost: 0` on every successful model call; the attempts that
+failed returned no usage data. Only `:free` models are allowed.
 
 ## Layout
 
@@ -255,6 +288,6 @@ daw/bench.py       checkpoint cost micro-benchmark
 daw/fakesteps.py   deterministic fake steps that write the execution ledger
 eval/workflows.json    the 20 frozen workflows (data), with workflows.sha256
 eval/results/          run-2 (reported), run-1 (superseded): report, results.json, ledgers, logs
-demo/              research-brief agent, OpenRouter / fake model client, fixture page
+demo/              research-brief agent, OpenRouter / fake model client, fixture page, sample-brief.md
 tests/             engine, sandbox, store, frozen-suite tests (including a real SIGKILL + resume)
 ```

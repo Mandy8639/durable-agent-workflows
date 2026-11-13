@@ -95,8 +95,14 @@ class Engine:
     def run(self, wf: Workflow, run_input: Any = None, run_id: str | None = None) -> RunResult:
         return self.execute(self.start(wf, run_input, run_id))
 
-    def execute(self, run_id: str, force: bool = False) -> RunResult:
-        """Run (or resume) `run_id` until it completes or fails."""
+    def execute(self, run_id: str, force: bool = False, retry_failed: bool = False) -> RunResult:
+        """Run (or resume) `run_id` until it completes or fails.
+
+        `retry_failed` reopens a failed run: its failed step gets a fresh attempt budget and
+        every completed step is still reused, never re-executed.
+        """
+        if retry_failed and self.store.reopen_failed(run_id):
+            self.log(f"[{run_id}] reopened failed run; completed steps will be reused")
         run = self.store.get_run(run_id)
         if run is None:
             raise KeyError(f"no such run: {run_id}")

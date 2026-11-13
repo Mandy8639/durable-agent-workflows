@@ -66,7 +66,7 @@ def cmd_run(args) -> int:
 def cmd_resume(args) -> int:
     store, ws = _open(args.db)
     try:
-        result = Engine(store, ws).execute(args.run_id, force=args.force)
+        result = Engine(store, ws).execute(args.run_id, force=args.force, retry_failed=args.retry_failed)
     except KeyError as e:
         print(e, file=sys.stderr)
         return 2
@@ -156,6 +156,8 @@ def build_parser() -> argparse.ArgumentParser:
     sp = sub.add_parser("resume", parents=[common], help="continue a run from its checkpoint")
     sp.add_argument("run_id")
     sp.add_argument("--force", action="store_true", help="ignore the owner-pid liveness check")
+    sp.add_argument("--retry-failed", action="store_true",
+                    help="reopen a failed run: fresh attempts for the failed step, completed steps reused")
     sp.add_argument("--json", action="store_true")
     sp.set_defaults(fn=cmd_resume)
 

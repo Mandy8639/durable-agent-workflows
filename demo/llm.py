@@ -15,12 +15,12 @@ import urllib.request
 
 from daw.context import StepError
 
-DEFAULT_MODEL = "google/gemma-4-31b-it:free"
+DEFAULT_MODEL = "nvidia/nemotron-3.5-lightning:free"
 ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
 ENV = ("OPENROUTER_API_KEY", "DAW_LLM", "DAW_MODEL")
 
 
-def complete(task: str, system: str, user: str, *, max_tokens: int = 900) -> dict:
+def complete(task: str, system: str, user: str, *, max_tokens: int = 8000) -> dict:
     mode = os.environ.get("DAW_LLM", "openrouter")
     if mode == "fake":
         return {"text": FAKES[task](user), "model": "fake", "usage": {}, "cost": 0.0}
@@ -38,6 +38,8 @@ def complete(task: str, system: str, user: str, *, max_tokens: int = 900) -> dic
         "max_tokens": max_tokens,
         "temperature": 0.2,
         "usage": {"include": True},
+        # Reasoning models otherwise spend the whole token budget thinking and return no content.
+        "reasoning": {"effort": "low", "exclude": True},
     }
     req = urllib.request.Request(
         ENDPOINT,
@@ -57,9 +59,11 @@ def complete(task: str, system: str, user: str, *, max_tokens: int = 900) -> dic
         raise StepError(f"OpenRouter request failed: {e}") from None
     if "error" in data:
         raise StepError(f"OpenRouter error: {data['error']}")
-    text = (data["choices"][0]["message"].get("content") or "").strip()
+    choice = data["choices"][0]
+    text = (choice["message"].get("content") or "").strip()
     if not text:
-        raise StepError("model returned empty content")
+        raise StepError(f"model returned empty content (finish_reason={choice.get('finish_reason')!r}, "
+                        f"model={data.get('model', model)!r})")
     usage = data.get("usage") or {}
     return {"text": text, "model": data.get("model", model), "usage": usage,
             "cost": float(usage.get("cost") or 0.0)}
